@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename compilation unit &apos;com.cg.emc.dao.EventDAOCollectionIMpl.java&apos; to &apos;EventDAOCollectionImpl.java&apos;&#x0D;&#x0A;- Original project: &apos;EventManagementCompany&apos;&#x0D;&#x0A;- Original element: &apos;com.cg.emc.dao.EventDAOCollectionIMpl.java&apos;&#x0D;&#x0A;- Renamed element: &apos;com.cg.emc.dao.EventDAOCollectionImpl.java&apos;" description="Rename compilation unit &apos;EventDAOCollectionIMpl.java&apos;" flags="2" id="org.eclipse.jdt.ui.rename.compilationunit" input="/src&lt;com.cg.emc.dao{EventDAOCollectionIMpl.java" name="EventDAOCollectionImpl.java" references="false" stamp="1614073184486" version="1.0"/>
+</session>

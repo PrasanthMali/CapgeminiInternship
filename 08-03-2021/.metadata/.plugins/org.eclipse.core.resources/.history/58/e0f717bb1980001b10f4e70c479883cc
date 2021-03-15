@@ -1,0 +1,5 @@
+package com.cg.jh02.util;
+
+public class JPAUtil {
+
+}

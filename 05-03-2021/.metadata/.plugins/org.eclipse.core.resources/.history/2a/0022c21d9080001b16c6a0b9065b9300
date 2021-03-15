@@ -1,0 +1,29 @@
+package com.cg.jh01.ui;
+
+import javax.persistence.EntityManager;
+
+import com.cg.jh01.entity.Employee;
+import com.cg.jh01.entity.Laptop;
+import com.cg.jh01.util.JPAUtil;
+
+public class App14 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		Employee emp = em.find(Employee.class, 2L);
+		System.out.println(emp);
+		
+		Laptop lap = em.find(Laptop.class, 1L);
+		System.out.println(lap.getEmployee());
+		
+		JPAUtil.shutdown();
+	}
+}
+
+
+
+
+
+

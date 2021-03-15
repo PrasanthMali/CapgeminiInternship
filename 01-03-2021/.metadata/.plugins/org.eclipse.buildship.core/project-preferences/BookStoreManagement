@@ -1,0 +1,12 @@
+#
+#Tue Mar 02 09:56:31 IST 2021
+derivedResources=.gradle;build
+linkedResources=
+classpath=<?xml version\="1.0" encoding\="UTF-8"?>\n<classpath>\n<classpathentry kind\="lib" path\="C\:/Users/vtu86/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/42.2.15/6a004b2ce1b6f62c6a9068e86c39ac52f1237efa/postgresql-42.2.15.jar" sourcepath\="C\:/Users/vtu86/.gradle/caches/modules-2/files-2.1/org.postgresql/postgresql/42.2.15/64cf7071a07de40086d7eccbc90f62b00c666f29/postgresql-42.2.15-sources.jar">\r\n\t<attributes>\r\n\t\t<attribute name\="gradle_used_by_scope" value\="main,test"/>\r\n\t</attributes>\r\n</classpathentry>\r\n<classpathentry kind\="lib" path\="C\:/Users/vtu86/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.5.0/2f50520c8abea66fbd8d26e481d3aef5c673b510/checker-qual-3.5.0.jar" sourcepath\="C\:/Users/vtu86/.gradle/caches/modules-2/files-2.1/org.checkerframework/checker-qual/3.5.0/acb4745ac343906cd39f9b3776db0e56f251ae6e/checker-qual-3.5.0-sources.jar">\r\n\t<attributes>\r\n\t\t<attribute name\="gradle_used_by_scope" value\="main,test"/>\r\n\t</attributes>\r\n</classpathentry>\r\n</classpath>\n
+managedNatures=org.eclipse.jdt.core.javanature
+buildDir=build
+managedBuilders=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><commands/>
+buildScriptPath=build.gradle
+subprojectPaths=
+hasAutoBuildTasks=false
+gradleVersion=6.3

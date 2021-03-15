@@ -1,0 +1,17 @@
+package com.cg.sbwd.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+
+@Controller
+public class DefaultController {
+	
+	@Value("${app.title}")
+	private String appTitle;
+	
+	@GetMapping(path = {"","/","/home"})
+	public String greet() {
+		return "home";	
+	}
+}

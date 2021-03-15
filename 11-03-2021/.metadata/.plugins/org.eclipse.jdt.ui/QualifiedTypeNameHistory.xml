@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.cg.ixd.sevice.GreetServiceImpl"/>
+    <fullyQualifiedTypeName name="com.cg.ixd.sevice.IGreetService"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.AbstractApplicationContext"/>
+    <fullyQualifiedTypeName name="com.cg.ixd.service.GreetServiceArgumentedImpl"/>
+    <fullyQualifiedTypeName name="java.time.LocalTime"/>
+    <fullyQualifiedTypeName name="com.cg.ixd.service.Dummy"/>
+    <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+    <fullyQualifiedTypeName name="org.springframework.context.support.ClassPathXmlApplicationContext"/>
+    <fullyQualifiedTypeName name="com.cg.ixd.service.IGreetService"/>
+</qualifiedTypeNameHistroy>

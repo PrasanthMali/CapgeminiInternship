@@ -1,0 +1,5 @@
+package com.cg.iad.config;
+
+public class MyConfig {
+
+}

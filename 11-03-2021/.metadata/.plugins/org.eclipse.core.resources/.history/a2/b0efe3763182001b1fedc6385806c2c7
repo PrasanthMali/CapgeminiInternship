@@ -1,0 +1,7 @@
+package com.cg.ixd.sevice;
+
+
+@FunctionalInterface
+public interface IGreetService {
+	String getGreeting(String userName);
+}

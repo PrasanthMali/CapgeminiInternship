@@ -1,0 +1,28 @@
+package com.cg.ixd.service;
+
+public class GreetServiceArgumentedImpl implements IGreetService{
+	private String greetNote;
+	
+	public GreetServiceArgumentedImpl() {
+		
+	}
+
+	public GreetServiceArgumentedImpl(String greetNote) {
+		super();
+		this.greetNote = greetNote;
+	}
+
+	@Override
+	public String toString() {
+		return greetNote + " " + greetNote;
+	}
+
+	public String getGreetNote() {
+		return greetNote;
+	}
+
+	public void setGreetNote(String greetNote) {
+		this.greetNote = greetNote;
+	}
+	
+}

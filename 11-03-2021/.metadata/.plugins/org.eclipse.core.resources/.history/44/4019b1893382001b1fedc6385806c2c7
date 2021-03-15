@@ -1,0 +1,26 @@
+package com.cg.ixd.ui;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.cg.ixd.service.GreetServiceImpl;
+import com.cg.ixd.service.IGreetService;
+
+public class App01 {
+
+	public static void main(String[] args) {
+		// never use directly sub class to create object  --- not recommended
+		GreetServiceImpl gs1 = new GreetServiceImpl();
+		System.out.println(gs1.getGreeting("Srinivas"));
+		
+		//program to interface method  ---  always recommended
+		IGreetService gs2 = new GreetServiceImpl();
+		System.out.println(gs2.getGreeting("Prasanth"));
+		
+		//Spring Container  -  IoC
+		//ClassPath means src/main
+		ApplicationContext context = new ClassPathXmlApplicationContext();
+		IGreetService gs3 = (GreetServiceImpl) context.getBean("gsBean");
+		
+	}
+}

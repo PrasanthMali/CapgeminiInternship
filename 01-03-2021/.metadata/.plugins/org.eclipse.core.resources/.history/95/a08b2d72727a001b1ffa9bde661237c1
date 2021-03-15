@@ -1,0 +1,5 @@
+package com.cg.bsm.util;
+
+public class ConnectionProvider {
+
+}

@@ -1,0 +1,6 @@
+package com.cg.emc.service;
+
+public class EventServiceImpl implements IEventService {
+	private 
+
+}

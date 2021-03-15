@@ -1,0 +1,11 @@
+package com.cg.iad.service;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class GreetNoteProviderStandardImpl implements IGreetNoteProvider {
+	@Override
+	public String getGreetNote() {
+		return "Hello! Welcome";
+	}
+}

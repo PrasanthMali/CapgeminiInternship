@@ -1,0 +1,43 @@
+package com.cg.jh02.ui;
+
+import java.util.LinkedHashSet;
+import java.util.Set;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+
+import com.cg.jh02.entity.Course;
+import com.cg.jh02.entity.Student;
+import com.cg.jh02.util.JPAUtil;
+
+public class App04 {
+	public static void main(String []args) {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		Course c1=new Course("Oracle");
+		Course c2=new Course("JAva");
+		Student s1=new Student("raghu");
+		Student s2=new Student("divya");
+		Student s3=new Student("pranav");
+		Student s4=new Student("sudha");
+		
+		Set<Student>javaStudents=new LinkedHashSet<>();
+		javaStudents.add(s4);
+		javaStudents.add(s2);
+		
+		Set<Student>oracleStudents=new LinkedHashSet<>();
+		oracleStudents.add(s1);
+		oracleStudents.add(s3);
+		
+		c1.setStudents(oracleStudents);
+		c2.setStudents(javaStudents);
+		
+		EntityTransaction txn = em.getTransaction();
+		txn.begin();
+		em.persist(c1);
+		em.persist(c2);
+		txn.commit();
+		JPAUtil.shutdown();
+		
+	}
+}

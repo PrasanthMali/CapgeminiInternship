@@ -1,0 +1,5 @@
+package com.cg.wmd.config;
+
+public class SpringWebMvcConfig {
+
+}

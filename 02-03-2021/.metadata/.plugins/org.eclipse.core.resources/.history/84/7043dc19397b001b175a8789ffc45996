@@ -1,0 +1,5 @@
+package com.cg.emc.util;
+
+public class ConnectionProvider {
+
+}

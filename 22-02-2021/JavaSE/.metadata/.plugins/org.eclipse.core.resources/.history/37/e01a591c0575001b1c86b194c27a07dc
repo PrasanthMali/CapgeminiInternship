@@ -1,0 +1,5 @@
+package com.cg.tddp.excep;
+
+public class ZeroNotAllowedException {
+
+}

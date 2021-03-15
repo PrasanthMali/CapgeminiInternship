@@ -1,0 +1,19 @@
+package com.cg.jh05.ui;
+
+import javax.persistence.EntityManager;
+
+import com.cg.jh05.entity.Employee;
+import com.cg.jh05.util.JPAUtil;
+
+public class App01 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		Employee e1 = new Employee(101L, "Prasanth", "Malisetty", 55000.0);
+		
+		
+	}
+
+}

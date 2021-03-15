@@ -1,0 +1,9 @@
+package com.cg.hord.model;
+
+public class Estimator {
+
+	public Estimator() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

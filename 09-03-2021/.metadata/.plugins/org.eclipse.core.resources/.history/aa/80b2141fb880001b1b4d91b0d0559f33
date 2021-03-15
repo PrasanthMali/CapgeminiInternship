@@ -1,0 +1,76 @@
+package com.cg.jh05.entity;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="employees5")
+public class Employee {
+	@Id
+	@Column(name="employee_id")
+	private int employeeId;
+	
+	@Column(name="first_name",length=20)
+	private String firstName;
+
+	@Column(name="last_name",length=20)
+	private String lasttName;
+	
+	@Column(name="salary",precision=8,scale=2)
+	private Double salary;
+
+	@Column(name="department_id")
+	private Integer departmentId;
+	
+	public Employee() {
+		
+	}
+	
+	public Employee(int employeeId, String firstName, String lasttName, Double salary, Integer departmentId) {
+		super();
+		this.employeeId = employeeId;
+		this.firstName = firstName;
+		this.lasttName = lasttName;
+		this.salary = salary;
+		this.departmentId = departmentId;
+	}
+
+
+	public int getEmployeeId() {
+		return employeeId;
+	}
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	public String getLasttName() {
+		return lasttName;
+	}
+	public void setLasttName(String lasttName) {
+		this.lasttName = lasttName;
+	}
+	public Double getSalary() {
+		return salary;
+	}
+	public void setSalary(Double salary) {
+		this.salary = salary;
+	}
+	public Integer getDepartmentId() {
+		return departmentId;
+	}
+	public void setDepartmentId(Integer departmentId) {
+		this.departmentId = departmentId;
+	}
+	@Override
+	public String toString() {
+		return String.format("Employee [employeeId=%s, firstName=%s, lasttName=%s, salary=%s, departmentId=%s]",
+				employeeId, firstName, lasttName, salary, departmentId);
+	}
+}

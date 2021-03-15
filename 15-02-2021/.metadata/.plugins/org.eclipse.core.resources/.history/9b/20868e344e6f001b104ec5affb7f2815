@@ -1,0 +1,9 @@
+package com.cg.hord.model;
+
+public class RectangularHoarding {
+
+	public RectangularHoarding() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

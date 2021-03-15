@@ -1,0 +1,5 @@
+package com.cg.tddp.service;
+
+public class GreetService {
+
+}

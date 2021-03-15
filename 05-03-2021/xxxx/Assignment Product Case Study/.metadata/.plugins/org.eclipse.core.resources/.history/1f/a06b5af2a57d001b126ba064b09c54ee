@@ -1,0 +1,75 @@
+package com.cg.jp.entity;
+
+import java.io.Serializable;
+//import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="products")
+public class Product implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@Column(name="product_id")
+	private Long productId;
+	@Column(name="product_name")
+	private String productName;
+	@Column(name="product_category")
+	private String prdcat;
+	@Column(name="product_rate")
+	private Double unitRate;
+	
+	public Product() {
+		//default
+	}
+
+	public Product(Long productId, String productName, String prdcat, Double unitRate) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.prdcat = prdcat;
+		this.unitRate = unitRate;
+	}
+
+	public Long getProductId() {
+		return productId;
+	}
+
+	public void setProductId(Long productId) {
+		this.productId = productId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public String getPrdcat() {
+		return prdcat;
+	}
+
+	public void setPrdcat(String prdcat) {
+		this.prdcat = prdcat;
+	}
+
+	public Double getUnitRate() {
+		return unitRate;
+	}
+
+	public void setUnitRate(Double unitRate) {
+		this.unitRate = unitRate;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("productId=%s, productName=%s, prdcat=%s, unitRate=%s", productId, productName, prdcat, unitRate);
+	}
+	
+}

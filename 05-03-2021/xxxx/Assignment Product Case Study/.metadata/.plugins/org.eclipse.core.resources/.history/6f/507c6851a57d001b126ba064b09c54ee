@@ -1,0 +1,29 @@
+package com.cg.jp.entity;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="products")
+public class Product implements Serializable {
+
+	private static final long serialVersionUID = 1L;
+	@Id
+	@Column(name="product_id")
+	private Long productId;
+	@Column(name="product_name")
+	private String productName;
+	@Column(name="product_category")
+	private String prdcat;
+	@Column(name="product_rate")
+	private Double unitRate;
+	
+	public Product() {
+		//default
+	}
+}

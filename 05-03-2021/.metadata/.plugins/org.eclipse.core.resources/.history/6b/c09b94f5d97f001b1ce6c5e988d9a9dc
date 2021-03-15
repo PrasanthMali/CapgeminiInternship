@@ -1,0 +1,17 @@
+package com.cg.jh01.ui;
+
+import javax.persistence.EntityManager;
+
+import com.cg.jh01.entity.Product;
+import com.cg.jh01.util.JPAUtil;
+
+public class App08 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		Product pro1 = new Product("mouse");
+		
+	}
+
+}

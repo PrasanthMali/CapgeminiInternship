@@ -1,0 +1,5 @@
+package com.cg.ixd.sevice;
+
+public interface IGreetService {
+
+}

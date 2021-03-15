@@ -1,0 +1,19 @@
+package com.cg.jh02.ui;
+
+import javax.persistence.EntityManager;
+
+import com.cg.jh02.entity.Course;
+import com.cg.jh02.util.JPAUtil;
+
+public class App04 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		Course c1 = new Course("Oracle");
+		Course c2 = new Course("Java");
+		
+	}
+
+}

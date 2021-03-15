@@ -1,0 +1,127 @@
+package com.cg.pm.model;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Date;
+
+public class Event implements Serializable,Comparable<Event> {
+	
+	private String id;
+	private String title;
+	private LocalDate datescheduled;
+	private String location;
+	private int cost;
+	
+	public Event() {
+		
+	}
+	
+	public Event(String id, String title,LocalDate datescheduled, String location, int cost) {
+		super();
+		this.id = id;
+		this.title = title;
+		this.datescheduled = datescheduled;
+		this.location = location;
+		this.cost = cost;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+
+	public String getTitle() {
+		return title;
+	}
+
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+
+	public LocalDate getDatescheduled() {
+		return datescheduled;
+	}
+
+
+	public void setDatescheduled(LocalDate datescheduled) {
+		this.datescheduled = datescheduled;
+	}
+
+
+	public String getLocation() {
+		return location;
+	}
+
+
+	public void setLocation(String location) {
+		this.location = location;
+	}
+
+
+	public int getCost() {
+		return cost;
+	}
+
+
+	public void setCost(int cost) {
+		this.cost = cost;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		StringBuilder output=new StringBuilder("id:");
+		output.append(id);
+		output.append("\tTitle:");
+		output.append(title);
+		output.append("\tdatescheduled:");
+		output.append(datescheduled);
+		output.append("\tlocation:");
+		output.append(location);
+		output.append("\tCost:");
+		output.append(cost);
+		return output.toString();
+	}
+
+	@Override
+	public int compareTo(Event event) {
+		String firstId = this.id;
+		String secondId= event.id;
+		return firstId.compareTo(secondId);
+	}
+
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((location == null) ? 0 : location.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Event other = (Event) obj;
+		if (location == null) {
+			if (other.location != null)
+				return false;
+		} else if (!location.equals(other.location))
+			return false;
+		return true;
+	}
+
+}

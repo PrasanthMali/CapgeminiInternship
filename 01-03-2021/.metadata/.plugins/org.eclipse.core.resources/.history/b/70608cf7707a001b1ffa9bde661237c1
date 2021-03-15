@@ -1,0 +1,5 @@
+package com.cg.bsm.service;
+
+public interface IBookService {
+
+}

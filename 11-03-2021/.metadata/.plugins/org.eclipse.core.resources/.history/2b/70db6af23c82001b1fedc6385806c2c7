@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+           http://www.springframework.org/schema/beans/spring-beans.xsd">
+        
+        <bean id="gsBean"
+        	class = "com.cg.idx.service.GreetServiceImpl"/>
+        	
+        <bean id="gsaBean"
+        	class = "com.cg.idx.service.GreetServiceArgumentedImpl">
+        	<property name="greetNote" value="Namasthe"/>
+        </bean>
+        	
+        <bean id="gsaBean2"
+        	class = "com.cg.idx.service.GreetServiceArgumentedImpl">
+        	<constructor-arg index="0" value="Vanakkam"/>
+        </bean>   
+        <bean id="gsaBean3"
+        	class = "com.cg.idx.service.GreetServiceArgumentedImpl">
+        	<constructor-arg name="greetNote" value="Vanakkam"/>
+        </bean>
+</beans>

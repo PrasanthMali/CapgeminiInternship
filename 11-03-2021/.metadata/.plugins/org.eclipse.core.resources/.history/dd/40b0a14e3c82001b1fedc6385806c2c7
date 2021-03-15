@@ -1,0 +1,37 @@
+import com.cg.ixd.ui;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.cg.ixd.service.GreetServiceArgumentedImpl;
+import com.cg.ixd.service.GreetServiceImpl;
+import com.cg.ixd.service.IGreetService;
+
+public class App01 {
+
+public static void main(String[] args) {
+//never use direct sub class to create object
+GreetServiceImpl gs1=new GreetServiceImpl();
+System.out.println(gs1.getGreeting(" Venkata Sai"));
+
+
+//use program to inference method   always recommended
+IGreetService gs2=new GreetServiceImpl();
+System.out.println(gs2.getGreeting(" Gajula"));
+
+//Spring Container IoC Spring Way
+//class path means src/main
+ApplicationContext context=new ClassPathXmlApplicationContext("Beans1.xml");
+IGreetService gs3=(GreetServiceImpl) context.getBean("gsBean");
+System.out.println(gs3.getGreeting(" Naveen"));
+
+System.out.println("---------------------------------");
+
+IGreetService gs4=(IGreetService)context.getBean("gsaBean");
+System.out.println(gs4.getGreeting("Naveen"));
+
+((AbstractApplicationContext) context).close();
+}
+
+}

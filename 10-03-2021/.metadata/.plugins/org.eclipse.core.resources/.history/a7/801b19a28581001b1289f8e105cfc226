@@ -1,0 +1,5 @@
+package com.cg.bsmh.entity;
+
+public class Book {
+
+}

@@ -1,0 +1,5 @@
+package com.cg.jh04.entity;
+
+public class Employee {
+
+}

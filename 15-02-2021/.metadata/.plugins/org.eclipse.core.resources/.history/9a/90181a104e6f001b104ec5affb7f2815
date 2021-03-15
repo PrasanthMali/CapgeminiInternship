@@ -1,0 +1,9 @@
+package com.cg.hord.model;
+
+public class CircularHoarding {
+
+	public CircularHoarding() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

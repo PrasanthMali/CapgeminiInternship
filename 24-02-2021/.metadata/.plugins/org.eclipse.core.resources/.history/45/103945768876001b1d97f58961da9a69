@@ -1,0 +1,5 @@
+package com.cg.emc.excep;
+
+public class EventManagementException {
+
+}

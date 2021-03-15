@@ -1,0 +1,5 @@
+package com.cg.emc.dao;
+
+public class IQueryMapper {
+
+}

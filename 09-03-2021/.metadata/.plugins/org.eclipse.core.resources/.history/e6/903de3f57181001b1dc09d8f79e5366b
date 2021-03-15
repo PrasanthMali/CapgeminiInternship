@@ -1,0 +1,20 @@
+package com.cg.jh04.ui;
+
+import javax.persistence.EntityManager;
+
+import com.cg.jh04.util.JPAUtil;
+
+public class App02 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		//String jpql = "SELECT e FROM Employee e";
+		//String jpql = "SELECT m FROM Manager m";
+		String jpql = "SELECT c FROM ContractEmployee c";
+		
+		Typed
+	}
+
+}

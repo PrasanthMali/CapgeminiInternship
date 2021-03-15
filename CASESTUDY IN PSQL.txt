@@ -1,0 +1,117 @@
+                                                                               CASE STUDY
+                                                                            -----------------------
+
+
+creating the customer table:
+---------------------------------
+
+CREATE TABLE custmast
+( custno   serial CONSTRAINT cutsmast_custno_pk PRIMARY KEY, 
+custname  varchar(15) CONSTRAINT custmast_custname_nn  NOT NULL,
+address  varchar(40),
+phone  varchar(10) CONSTRAINT custmast_phone_u UNIQUE
+);
+
+
+creating the items table:
+-----------------------------
+
+CREATE TABLE itemmast
+( itemno  serial CONSTRAINT itemmast_itemno_pk PRIMARY KEY,
+itemname  varchar(20) CONSTRAINT itemmast_itemname_nn NOT NULL,
+unitprice  float CONSTRAINT itemmast_unitrate_check CHECK (unitprice>0),
+opstock int
+);
+
+creating the orders table:
+------------------------------
+
+CREATE TABLE ordermast
+(orderno serial CONSTRAINT ordermast_orderno_pk PRIMARY KEY,
+orderdate date not null default CURRENT_DATE,
+custno int CONSTRAINT oredrmast_custno_fk  REFERENCES custmast(custno),
+ordervalue float
+);
+
+creating the order details table:
+-------------------------------------
+
+CREATE TABLE orderdetails
+(orderno int CONSTRAINT orderdetails_orderno_fk REFERENCES ordermast(orderno),
+itemno int CONSTRAINT orderdetails_itemno_fk REFERENCES itemmast(itemno),
+qty int CONSTRAINT orderdetails_qty_check CHECK (qty>0),
+PRIMARY KEY (orderno, itemno)
+);
+
+
+inserting rows into customer table:
+-----------------------------------------
+
+INSERT INTO custmast (custname,address,phone)
+VALUES ('prasanth', 'ongole,andhra pradesh', '8500087861');
+
+INSERT INTO custmast (custname,address,phone)
+VALUES ('chaithanya', 'chirala,andhra pradesh', '8500087862');
+
+INSERT INTO custmast (custname,address,phone)
+VALUES ('sai', 'inkollu,andhra pradesh', '8500087863');
+
+INSERT INTO custmast (custname,address,phone)
+VALUES ('siva', 'parchur,andhra pradesh', '8500087864');
+
+INSERT INTO custmast (custname,address,phone)
+VALUES ('ramesh', 'guntur,andhra pradesh', '8500087865');
+
+inserting rows into items table:
+-------------------------------------
+
+INSERT INTO itemmast (itemname,unitprice,opstock)
+VALUES ('sugar', '110.34', '5');
+
+INSERT INTO itemmast (itemname,unitprice,opstock)
+VALUES ('jaggery', '150', '10');
+
+INSERT INTO itemmast (itemname,unitprice,opstock)
+VALUES ('maida', '50.68', '37');
+
+INSERT INTO itemmast (itemname,unitprice,opstock)
+VALUES ('cornflour', '200', '7');
+
+INSERT INTO itemmast (itemname,unitprice,opstock)
+VALUES ('biscuits', '29.99', '50');
+
+inserting rows into orders table:
+--------------------------------------
+
+INSERT INTO ordermast (custno,ordervalue)
+VALUES (1,200.999);
+
+INSERT INTO ordermast (custno,ordervalue)
+VALUES (2,250.45);
+
+INSERT INTO ordermast (custno,ordervalue)
+VALUES (3,530);
+
+INSERT INTO ordermast (custno,ordervalue)
+VALUES (4,1000);
+
+INSERT INTO ordermast (custno,ordervalue)
+VALUES (5,2500.45);
+
+inserting rows into order details table:
+--------------------------------------------
+
+INSERT INTO orderdetails (orderno,itemno,qty)
+VALUES (1,1,5);
+
+INSERT INTO orderdetails (orderno,itemno,qty)
+VALUES (2,2,10);
+
+INSERT INTO orderdetails (orderno,itemno,qty)
+VALUES (3,3,15);
+
+INSERT INTO orderdetails (orderno,itemno,qty)
+VALUES (4,4,20);
+
+INSERT INTO orderdetails (orderno,itemno,qty)
+VALUES (5,5,25);

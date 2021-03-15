@@ -1,0 +1,5 @@
+package com.cg.inher.model;
+
+public class Person {
+
+}

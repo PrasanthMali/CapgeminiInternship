@@ -1,0 +1,26 @@
+package com.cg.jd.ui;
+
+import java.sql.CallableStatement;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.sql.Types;
+import java.util.Scanner;
+
+public class UpdateStatement {
+
+	public static void main(String[] args) throws SQLException {
+		Statement statement = null;
+		
+			 //update
+			 
+			 String sqlUpdate = "UPDATE employee SET salary = 47000 WHERE id = 104";
+			 int sqlQueryUpdate = statement.executeUpdate(sqlUpdate);
+			 System.out.println("UPDATED SUCCESSFULLY: 	"+sqlQueryUpdate);
+			 
+
+	}
+}

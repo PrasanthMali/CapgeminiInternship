@@ -1,0 +1,5 @@
+package com.cg.jh01.util;
+
+public class JPAUtil {
+
+}

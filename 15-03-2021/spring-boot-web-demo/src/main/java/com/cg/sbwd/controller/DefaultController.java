@@ -1,0 +1,35 @@
+package com.cg.sbwd.controller;
+
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+@Controller
+public class DefaultController {
+	
+	@Value("${app.title}")
+	private String appTitle;
+	
+//	@GetMapping(path = {"","/","home"})
+//	public String greet() {
+//		return "home";
+//	}
+	
+//	@GetMapping(path = {"/hello"})
+//	public String hell() {
+//		return "hello";	
+//	}
+	
+	@GetMapping(path = {"","/","home"})
+	public ModelAndView defaultGetRequestHandler() {
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("home");
+		
+		mv.addObject("name", "Prasanth");
+		mv.addObject("age", "21");
+		mv.addObject("location", "Chirala");
+		mv.addObject("appTitle", appTitle);
+		return mv;
+	}
+}

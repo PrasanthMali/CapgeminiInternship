@@ -1,0 +1,27 @@
+package com.cg.jh05.ui;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.Query;
+//import javax.persistence.TypedQuery;
+
+import com.cg.jh05.util.JPAUtil;
+
+public class App13 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		String sql = "SELECT first_name, last_name FROM Employees5";
+		Query qry = em.createQuery(sql, Object[].class);
+		@SuppressWarnings("unchecked")
+		List<Object[]> empList = qry.getResultList();
+		for(Object[]records:empList) {
+			System.out.printf("%-15s%-15s%8s\n",records[0],records[1],records[2]);
+		}
+				
+		JPAUtil.shutdown();
+	}
+
+}

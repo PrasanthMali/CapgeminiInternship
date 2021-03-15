@@ -1,0 +1,5 @@
+package com.cg.ld.excep;
+
+public class BankException extends Exception {
+
+}

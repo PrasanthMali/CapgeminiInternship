@@ -1,0 +1,5 @@
+package com.cg.sbwd.controller;
+
+public class DefaultController {
+
+}

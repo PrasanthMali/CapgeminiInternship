@@ -1,0 +1,24 @@
+package com.cg.ixd.ui;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.AbstractApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.cg.ixd.service.GreetServiceImpl;
+import com.cg.ixd.service.IGreetService;
+
+public class App01 {
+
+	public static void main(String[] args) {
+		IGreetService gs2=new GreetServiceImpl();
+		System.out.println(gs2.getGreeting("Srinivas1"));
+		
+		ApplicationContext context=new ClassPathXmlApplicationContext("bean1.xml");
+		
+		IGreetService gs3=(GreetServiceImpl)context.getBean("gsBean");
+		System.out.println(gs3.getGreeting("Srinivas2"));
+		
+		((AbstractApplicationContext)context).close();
+	}
+
+}

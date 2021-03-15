@@ -1,0 +1,287 @@
+creating a table in psql:
+------------------------
+
+CREATE  TABLE   sales
+(itemno     int,
+ itemname   varchar(20),
+ purchasedate  varchar(10),
+ qty        int
+);
+
+
+inserting rows ito table:
+-------------------------
+
+INSERT INTO sales
+VALUES (101, 'mouse', '21-02-2018', 2);
+
+
+INSERT INTO sales
+VALUES (102, 'mobile phone', '15-08-2019', 1);
+
+
+INSERT INTO sales
+VALUES (103, 'speakers', '21-10-2019', 10);
+
+
+modifying the rows of table:
+----------------------------
+
+UPDATE   sales
+SET  purchasedate = '06-11-2020', qty = 20
+WHERE itemno = 103;
+
+
+deleting a row of table:
+------------------------
+
+DELETE  FROM sales
+WHERE purchasedate = '15-08-2019';
+
+truncate table:
+---------------
+
+TRUNCATE  TABLE sales;
+
+
+drop table:
+-----------
+
+DROP TABLE sales;
+
+
+
+                                                                     PRACTICE (25-02-2021)
+                                                                     --------------------------------
+
+CREATE  TABLE  departments
+(deptno     int     CONSTRAINT   departments_deptno_pk  PRIMARY KEY,
+ dname      varchar(20)  CONSTRAINT departments_dname_nn    NOT NULL,
+ location   varchar(20)
+);
+
+
+CREATE  TABLE  employees
+(empno  int  CONSTRAINT  employees_empno_pk  PRIMARY  KEY,
+ ename  varchar(20) CONSTRAINT employees_ename_nn  NOT NULL,
+ doj    date   CONSTRAINT  employees_doj_chk  CHECK  (doj <= current_date),
+ salary float  CONSTRAINT  employees_salary_chk CHECK (salary >= 5000),
+ deptno int  CONSTRAINT  employees_deptno_fk  REFERENCES departments(deptno)
+);
+
+
+CREATE TABLE test
+(empno int,
+ ename varchar(5)
+);
+
+ALTER TABLE test
+ADD COLUMN salary  float;           ----------adding single column
+
+ALTER TABLE test
+ADD COLUMN c1 int,      -----------adding multiple columns
+ADD COLUMN c2 int;
+
+ALTER TABLE test                     ----------------adding constraints 
+ADD CONSTRAINT test_empno_pk PRIMARY KEY(empno);
+
+ALTER TABLE test                         ----------------removing constraints 
+DROP CONSTRAINT test_empno_pk;
+
+ALTER TABLE test                                       -------------increase the capacity of datatype
+ALTER COLUMN ename TYPE varchar(6);
+
+ALTER TABLE test
+DROP COLUMN c1;             -----------remove single column 
+
+ALTER TABLE test
+DROP COLUMN c1,        ------remove multiple columns
+DROP COLUMN c2;
+
+ALTER TABLE test                       --------------renaming the table
+RENAME COLUMN salary TO sal;
+
+SELECT :
+--------------
+
+SELECT 2*3+4;       -----------using bodmas rule
+
+SELECT 5/10;          ------------performing divison
+
+
+SELECT empno, ename, doj, salary, deptno, salary*10/100 AS bonus
+FROM  employees;                   -----------------bonus is 10% of the salary
+
+
+SELECT empno, ename, salary, allowance, salary+allowance as "Monthly Salary"
+FROM employees;             ---------------------monthly salary of all employees(salary + allowance)
+
+
+SELECT empno, ename, salary, allowance, NULLIF(0, salary)+allowance as "Monthly Salary"
+FROM employees;                  -----------------------NULLIF( it replace value-1 in the expression if value-2 is null)
+
+DISTINCT: (to elimnate duplicate rows in the output)
+--------------
+
+SELECT DISTINCT deptno
+FROM employees;
+
+SELECT DISTINCT deptno, salary
+FROM employees;
+
+WHERE: (to display rows that satisify given condition)
+------------
+
+SELECT  empno, ename, salary, deptno
+FROM employees                            ----------checking deptno condition
+WHERE  deptno = 10;
+
+SELECT empno, ename
+FROM employees           -----------checking ename condition(comparision is always case sensitive)
+WHERE ename = 'ramu';          
+
+SELECT empno, ename, doj
+FROM employees
+WHERE doj >= '01-01-2000';
+
+AND, OR, NOT: (logical operators)
+--------------------
+
+SELECT  empno, ename, salary, deptno
+FROM employees                      ---------------using AND operator
+WHERE  deptno = 10 
+AND salary >= 5000;
+
+SELECT  empno, ename, salary, deptno
+FROM employees
+WHERE  deptno = 10                  ---------------using OR operator
+OR salary >= 5000;
+
+SELECT  empno, ename, salary, deptno
+FROM employees                        ---------------using NOT operator
+WHERE  NOT deptno = 10;
+
+(or)
+
+SELECT  empno, ename, salary, deptno
+FROM employees                          ---------------another way of using NOT operator
+WHERE  deptno != 10;        
+
+
+SQL Operators:
+-------------------
+
+IN, BETWEEN, LIKE, ILIKE(performs case insensitive search), IS NULL
+
+Negation Opertors:
+------------------
+
+NOT IN, NOT BETWEEN  value-1 AND value-2, NOT LIKE, NOT ILIKE, IS NOT NULL
+
+
+SELECT  empno, ename, salary, deptno
+FROM employees                                                   ------using 'between' and 'and'
+WHERE  salary BETWEEN 2000 AND 7000;
+
+(or)
+
+SELECT  empno, ename, salary, deptno
+FROM employees                                                ------using relational operators
+WHERE  salary >= 2000 AND salary <= 7000;
+
+
+SELECT  empno, ename, salary, deptno
+FROM employees                                       -------------using IN
+WHERE  deptno IN (10,30,20);
+
+(or)
+
+SELECT  empno, ename, salary, deptno
+FROM employees
+WHERE  deptno  = 10  OR  deptno = 30  OR  deptno = 20;
+
+
+SELECT empno, ename
+FROM employees                  ------------using LIKE
+WHERE ename LIKE 'r%';
+
+SELECT empno, ename
+FROM employees                    ------------using LIKE
+WHERE ename LIKE '%r';
+
+SELECT empno, ename
+FROM employees                       ------------using LIKE
+WHERE ename LIKE '%r%';
+
+SELECT empno, ename
+FROM employees                 ---------------all employees whose name contain second character as 'a'
+WHERE ename LIKE '_a%';
+
+SELECT empno, ename, deptno
+FROM employees                  ----------------using NULL
+WHERE deptno IS NULL;
+
+ORDER BY:
+--------------
+
+SELECT empno, ename, salary
+FROM employees              ----------------------------using ORDER BY nulls with highest priority
+ORDER BY salary;
+
+SELECT empno, ename, salary
+FROM employees                  -------------------using ORDER BY nulls at least priority
+ORDER BY salary desc NULLS LAST;
+
+SELECT empno, ename, salary, deptno
+FROM employees                          
+ORDER BY deptno, ename DESC;
+
+SELECT empno, ename, salary, deptno
+FROM employees
+WHERE salary >= 5000
+ORDER BY deptno;
+
+SELECT sum(salary), avg(salary), min(salary), max(salary)
+FROM employees;
+
+SELECT count(salary)
+FROM employees;
+
+SELECT count(*)
+FROM employees;
+
+SELECT NOW();               -------------return current date and time
+
+SELECT NOW()::DATE;             -------------return current date only
+
+SELECT NOW()::TIME          -------------return current time only
+
+SELECT NOW() - INTERVAL '1 YEAR';       --------------substract 1 year from current date.
+ 
+SELECT NOW() - INTERVAL '10 YEARS';     --------------substract 10 year from current date.
+
+SELECT NOW() - INTERVAL '10 MONTHS';       --------------substract 10 months from current date.
+
+SELECT NOW() - INTERVAL '10 DAY';     --------------substract 10 days from current date.
+
+SELECT NOW() + INTERVAL '10 DAYS';     -------------adds 10 days from current date
+
+SELECT NOW() + INTERVAL '10 MONTHS';      -------------adds 10 months from current date
+
+SELECT NOW()::DATE + INTERVAL '10 MONTHS';   -------------adds 10 months from current date
+
+SELECT (NOW()::DATE + INTERVAL '10 MONTHS')::DATE;     --------truncate the time portion from the result.
+
+SELECT EXTRACT(YEAR FROM NOW());    ----------returns only the current year
+
+SELECT EXTRACT(MONTH FROM NOW());      --------returns only the current month
+
+SELECT EXTRACT(DAY FROM NOW());         -----------returns only the current day
+
+SELECT EXTRACT(CENTURY FROM NOW());     ------returns only the current century 
+
+SELECT first_name, last_name, gender, country_of_birth, date_of_birth, 
+AGE(NOW(), date_of_birth) AS age                      ----------------returns calculated age
+FROM persons;
+
+

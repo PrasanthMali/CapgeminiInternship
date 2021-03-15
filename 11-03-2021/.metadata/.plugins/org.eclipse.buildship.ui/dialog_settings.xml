@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.buildship.ui.wizard.project.creation">
+		<item key="project_location" value="D:\Capgemini\11-03-2021\ioc-xml-demo"/>
+		<item key="use_default_location" value="true"/>
+		<item key="gradle_user_home" value="C:\gradle-6.8.3"/>
+		<item key="java_home" value="C:\Program Files\Java\jdk1.8.0_281"/>
+	</section>
+</section>

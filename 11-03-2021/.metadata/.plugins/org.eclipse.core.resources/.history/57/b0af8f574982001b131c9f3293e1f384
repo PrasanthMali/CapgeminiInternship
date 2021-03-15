@@ -1,0 +1,5 @@
+package com.cg.ixd.service;
+
+public interface IGreetNoteProvider {
+
+}

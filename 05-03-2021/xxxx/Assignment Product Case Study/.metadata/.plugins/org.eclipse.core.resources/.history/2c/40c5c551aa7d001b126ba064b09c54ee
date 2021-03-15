@@ -1,0 +1,28 @@
+package com.cg.jp.ui;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityTransaction;
+import com.cg.jp.entity.Category;
+import com.cg.jp.entity.Product;
+import com.cg.jp.util.JPAUtil;
+
+public class Insertion {
+
+	public static void main(String[] args) {
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		Product p1 = new Product(101L,"Sugar",75.0,Category.COSMETIC);
+		Product p2 = new Product(102L,"Powder",160.0,Category.GROCERY);
+		Product p3 = new Product(103L,"Ice-cream",80.0,Category.DESERT);
+		
+		EntityTransaction txn=em.getTransaction();
+		txn.begin();
+		
+		em.persist(p1);
+		em.persist(p2);
+		em.persist(p3);
+		txn.commit();
+		em.close();
+
+	}
+
+}

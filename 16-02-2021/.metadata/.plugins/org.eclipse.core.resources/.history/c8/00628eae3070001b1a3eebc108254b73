@@ -1,0 +1,9 @@
+package com.cg.ld.model;
+
+public class Account {
+
+	public Account() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

@@ -1,0 +1,124 @@
+package com.cg.bsmh.entity;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+/*
+ * Represents a book in a book store.
+ */
+
+@Entity
+@Table(name="books1")
+public class Book implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name="b_code")
+	private String bCode;
+	
+	@Column(name="title")
+	private String title;
+	
+	@Column(name="publish_date")
+	private LocalDate publishDate;
+	
+	@Column(name="price")
+	private Double price;
+
+	public Book() {
+		
+	}
+
+	public String getbCode() {
+		return bCode;
+	}
+
+	public void setbCode(String bCode) {
+		this.bCode = bCode;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public LocalDate getPublishDate() {
+		return publishDate;
+	}
+
+	public void setPublishDate(LocalDate publishDate) {
+		this.publishDate = publishDate;
+	}
+
+	public Double getPrice() {
+		return price;
+	}
+
+	public void setPrice(Double price) {
+		this.price = price;
+	}
+
+	@Override
+	public String toString() {
+		return String.format("Book [bCode=%s, title=%s, publishDate=%s, price=%s]", bCode, title, publishDate, price);
+	}
+
+//	@Override
+//	public int hashCode() {
+//		final int prime = 31;
+//		int result = 1;
+//		result = prime * result + ((bCode == null) ? 0 : bCode.hashCode());
+//		result = prime * result + ((price == null) ? 0 : price.hashCode());
+//		result = prime * result + ((publishDate == null) ? 0 : publishDate.hashCode());
+//		result = prime * result + ((title == null) ? 0 : title.hashCode());
+//		return result;
+//	}
+//
+//	@Override
+//	public boolean equals(Object obj) {
+//		if (this == obj)
+//			return true;
+//		if (obj == null)
+//			return false;
+//		if (getClass() != obj.getClass())
+//			return false;
+//		Book other = (Book) obj;
+//		if (bCode == null) {
+//			if (other.bCode != null)
+//				return false;
+//		} else if (!bCode.equals(other.bCode))
+//			return false;
+//		if (price == null) {
+//			if (other.price != null)
+//				return false;
+//		} else if (!price.equals(other.price))
+//			return false;
+//		if (publishDate == null) {
+//			if (other.publishDate != null)
+//				return false;
+//		} else if (!publishDate.equals(other.publishDate))
+//			return false;
+//		if (title == null) {
+//			if (other.title != null)
+//				return false;
+//		} else if (!title.equals(other.title))
+//			return false;
+//		return true;
+//	}
+//		
+}

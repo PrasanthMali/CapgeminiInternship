@@ -1,0 +1,5 @@
+package com.cg.emc.model;
+
+public class Event {
+
+}

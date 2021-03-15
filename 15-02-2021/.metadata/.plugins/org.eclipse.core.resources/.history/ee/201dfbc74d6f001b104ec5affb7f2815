@@ -1,0 +1,9 @@
+package com.cg.hord.model;
+
+public class Hoarding {
+
+	public Hoarding() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

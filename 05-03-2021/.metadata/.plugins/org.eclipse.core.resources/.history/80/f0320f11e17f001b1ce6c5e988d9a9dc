@@ -1,0 +1,30 @@
+package com.cg.jh01.model;
+
+public class StudentIdentity {
+	private String course;
+	private String branch;
+	public StudentIdentity() {
+		
+	}
+	public StudentIdentity(String course, String branch) {
+		super();
+		this.course = course;
+		this.branch = branch;
+	}
+	public String getCourse() {
+		return course;
+	}
+	public void setCourse(String course) {
+		this.course = course;
+	}
+	public String getBranch() {
+		return branch;
+	}
+	public void setBranch(String branch) {
+		this.branch = branch;
+	}
+	@Override
+	public String toString() {
+		return String.format("course=%s, branch=%s", course, branch);
+	}
+}

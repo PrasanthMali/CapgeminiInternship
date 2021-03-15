@@ -1,0 +1,14 @@
+package com.cg.iad.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service("gsa")
+public class GreetServiceAdvancedImpl implements IGreetService {
+	
+	@Autowired
+	private IGreetNoteProvider greetNoteProvider;
+	public String getGreeeting(String userName) {
+		return greetNoteProvider.getGreetNote() + " "+ userName;
+	}
+}

@@ -1,0 +1,63 @@
+package com.cg.jh02.entity;
+
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="orders")
+public class Product {
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "product_id")
+	private int id;
+	@Column(name = "product_name")
+	private String name;
+	
+	@ManyToMany(mappedBy="products")
+	private Set<Order> orders;
+
+	public Product(int id, String name, Set<Order> orders) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.orders = orders;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Set<Order> getOrders() {
+		return orders;
+	}
+
+	public void setOrders(Set<Order> orders) {
+		this.orders = orders;
+	}
+
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", orders=" + orders + "]";
+	}
+	
+	
+}

@@ -1,0 +1,18 @@
+package com.cg.emc.model;
+
+import java.io.Serializable;
+
+public class Event implements Serializable, Comparable<Event> {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Override
+	public int compareTo(Event o) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

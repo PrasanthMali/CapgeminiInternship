@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.cg.jh02.model.Address"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.tree.JCTree.Factory"/>
+    <fullyQualifiedTypeName name="java.util.Date"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinColumn"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.cg.jh02.entity.Course"/>
+    <fullyQualifiedTypeName name="com.cg.jh02.entity.Student"/>
+    <fullyQualifiedTypeName name="com.cg.jh05.util.JPAUtil"/>
+    <fullyQualifiedTypeName name="com.cg.jh05.entity.Employee"/>
+    <fullyQualifiedTypeName name="com.cg.jh05.entity.Department"/>
+    <fullyQualifiedTypeName name="javax.persistence.TypedQuery"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.management.Query"/>
+    <fullyQualifiedTypeName name="javax.persistence.Query"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.FetchType"/>
+    <fullyQualifiedTypeName name="javax.persistence.CascadeType"/>
+    <fullyQualifiedTypeName name="javax.persistence.JoinTable"/>
+    <fullyQualifiedTypeName name="com.cg.jh03.util.JPAUtil"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+    <fullyQualifiedTypeName name="com.cg.jh03.entity.Student"/>
+    <fullyQualifiedTypeName name="java.util.Set"/>
+    <fullyQualifiedTypeName name="java.util.LinkedHashSet"/>
+    <fullyQualifiedTypeName name="com.cg.jh03.entity.Course"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="javax.persistence.Inheritance"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
+    <fullyQualifiedTypeName name="javax.persistence.GenerationType"/>
+    <fullyQualifiedTypeName name="javax.persistence.DiscriminatorType"/>
+    <fullyQualifiedTypeName name="javax.persistence.DiscriminatorColumn"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.DiscriminatorValue"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="com.cg.jh04.entity.Employee"/>
+    <fullyQualifiedTypeName name="com.cg.jh04.entity.Manager"/>
+    <fullyQualifiedTypeName name="com.cg.jh04.entity.ContractEmployee"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
+    <fullyQualifiedTypeName name="com.cg.jh04.util.JPAUtil"/>
+    <fullyQualifiedTypeName name="javax.persistence.Table"/>
+</qualifiedTypeNameHistroy>

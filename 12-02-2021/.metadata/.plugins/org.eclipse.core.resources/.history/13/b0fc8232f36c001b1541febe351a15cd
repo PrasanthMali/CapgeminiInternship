@@ -1,0 +1,14 @@
+package com.cg.inher.model;
+
+public class Manager extends Employee {
+
+	public Manager() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public Manager(String name, int age, double salary) {
+		super(name, age, salary);
+		// TODO Auto-generated constructor stub
+	}
+
+}

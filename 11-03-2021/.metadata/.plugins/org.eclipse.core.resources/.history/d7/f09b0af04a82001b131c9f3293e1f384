@@ -1,0 +1,9 @@
+package com.cg.ixd.service;
+
+public class GreetServiceAdvancedImpl implements IGreetService {
+	
+	private IGreetNoteProvider greetNoteProvider;
+	
+	@Override
+	
+}

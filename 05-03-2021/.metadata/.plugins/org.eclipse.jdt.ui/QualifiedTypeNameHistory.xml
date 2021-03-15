@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="javax.persistence.Persistence"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
+    <fullyQualifiedTypeName name="javax.persistence.Id"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.util.JPAUtil"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.entity.Product"/>
+    <fullyQualifiedTypeName name="javax.persistence.Embedded"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.model.Address"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.entity.Employee2"/>
+    <fullyQualifiedTypeName name="javax.persistence.Entity"/>
+    <fullyQualifiedTypeName name="javax.persistence.Table"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
+    <fullyQualifiedTypeName name="javax.persistence.EmbeddedId"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.entity.Student"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.model.StudentIdentity"/>
+    <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
+    <fullyQualifiedTypeName name="java.io.Serializable"/>
+    <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.entity.Employee"/>
+    <fullyQualifiedTypeName name="com.cg.jh01.entity.Laptop"/>
+</qualifiedTypeNameHistroy>

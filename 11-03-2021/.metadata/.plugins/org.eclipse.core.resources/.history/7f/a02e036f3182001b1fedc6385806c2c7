@@ -1,0 +1,5 @@
+package com.cg.ixd.sevice;
+
+public class GreetServiceImpl implements IGreetService {
+	public String getGreeting
+}

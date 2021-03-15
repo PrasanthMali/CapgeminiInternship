@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring accessors="true" comment="Delete element from project &apos;EventManagementCompany&apos;&#x0D;&#x0A;- Original project: &apos;EventManagementCompany&apos;&#x0D;&#x0A;- Original element: &apos;EventManagementCompany/src/test/java/com.cg.emc.service&apos;" description="Delete element" element1="/src\/test\/java=/gradle_scope=/test=/=/gradle_used_by_scope=/test=/=/test=/true=/&lt;com.cg.emc.service" element2="/src\/test\/java=/gradle_scope=/test=/=/gradle_used_by_scope=/test=/=/test=/true=/&lt;com.cg.emc" element3="/src\/test\/java=/gradle_scope=/test=/=/gradle_used_by_scope=/test=/=/test=/true=/&lt;com.cg" element4="/src\/test\/java=/gradle_scope=/test=/=/gradle_used_by_scope=/test=/=/test=/true=/&lt;com" elements="4" flags="589830" id="org.eclipse.jdt.ui.delete" resources="0" stamp="1614676216554" subPackages="false" version="1.0"/>
+</session>

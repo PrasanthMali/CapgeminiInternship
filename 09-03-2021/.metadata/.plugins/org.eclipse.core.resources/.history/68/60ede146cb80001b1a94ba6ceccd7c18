@@ -1,0 +1,15 @@
+package com.cg.jh05.ui;
+
+import javax.persistence.EntityManager;
+
+import com.cg.jh05.util.JPAUtil;
+
+public class App12 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		
+	}
+
+}

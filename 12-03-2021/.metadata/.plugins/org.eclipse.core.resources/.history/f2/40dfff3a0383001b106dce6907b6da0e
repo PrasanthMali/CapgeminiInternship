@@ -1,0 +1,5 @@
+package com.cg.wmd.controller;
+
+public class DefaultController {
+
+}

@@ -1,0 +1,14 @@
+package com.cg.oopd.ui;
+
+import com.cg.oopd.model.ComplexNumber;
+
+public class ComplexNumberApp {
+
+	public static void main(String[] args) {
+		ComplexNumber c1 = new ComplexNumber();
+		c1.setRealPart(5);
+		c1.setImaginaryPart(6);
+		System.out.println(c1.getRealPart());
+		System.out.println(c1.getImaginaryPart());
+	}
+}

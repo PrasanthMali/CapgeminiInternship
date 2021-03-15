@@ -1,0 +1,19 @@
+package com.cg.jh03.ui;
+
+import javax.persistence.EntityManager;
+
+import com.cg.jh03.entity.Course;
+import com.cg.jh03.util.JPAUtil;
+
+public class CreateCourseAndStudents {
+
+	public static void main(String[] args) {
+		EntityManager em = JPAUtil.getEntityManager();
+		Course tempCourse = new Course("Oracle");
+		System.out.println("\nSaving the course . . .");
+		em.persist(tempCourse);
+		
+		
+	}
+
+}

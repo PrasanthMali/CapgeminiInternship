@@ -1,0 +1,18 @@
+package com.cg.ixd.ui;
+
+import com.cg.ixd.sevice.GreetServiceImpl;
+import com.cg.ixd.sevice.IGreetService;
+
+public class App01 {
+
+	public static void main(String[] args) {
+		// never use directly sub class to create object  --- not recommended
+		GreetServiceImpl gs1 = new GreetServiceImpl();
+		System.out.println(gs1.getGreeting("Srinivas"));
+		
+		//program to interface method  ---  always recommended
+		IGreetService gs2 = new GreetServiceImpl();
+		System.out.println(gs2.getGreeting("Prasanth"));
+		
+	}
+}

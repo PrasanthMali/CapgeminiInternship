@@ -1,0 +1,62 @@
+package com.cg.jh02.entity;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="orders")
+public class Order implements Serializable {
+	
+	private static final long serialVersionUID = 1L;
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@Column(name = "order_id")
+	private int id;
+	
+	@Column(name = "date")
+	private Date purchaseDate;
+	
+	@ManyToMany
+	@JoinColumn(name="")
+	private Set<Product> products;
+	
+	public Order() {
+		/* Default constructor */
+	}
+
+	public Order(int id, Date purchaseDate) {
+		super();
+		this.id = id;
+		this.purchaseDate = purchaseDate;
+	}
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public Date getPurchaseDate() {
+		return purchaseDate;
+	}
+
+	public void setPurchaseDate(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
+	}
+
+	@Override
+	public String toString() {
+		return "Order [id=" + id + ", purchaseDate=" + purchaseDate + "]";
+	}
+}

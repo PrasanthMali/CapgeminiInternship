@@ -1,0 +1,24 @@
+package com.cg.jh05.ui;
+
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.TypedQuery;
+
+import com.cg.jh05.util.JPAUtil;
+
+public class App12 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		EntityManager em = JPAUtil.getEntityManager();
+		
+		String jpql = "SELECT d.departmentName, e.firstName, e.salary FROM Employee e,Department D WHERE e.departmentId = d.departmentId";
+		TypedQuery<Object[]> query = em.createQuery(jpql, Object[].class);
+		List<Object[]> empList = query.getResultList();
+		for(Object[] record: empList) {
+			System.out.printf("%-15s%-15s%8s\n", record[0], record[1], record[2]);
+		}
+		JPAUtil.shutdown();
+	}
+}
