@@ -7,15 +7,16 @@
 <meta charset="ISO-8859-1">
 <title>Header</title>
 </head>
-<body bgcolor="yellow">
-   <header>
-   	<h3><%=LocalDate.now()%></h3>
-   	<h2>${appTitle}</h2>
-   	<hr />
-   	</header>
-   	    <nav>
-        <a href="home">Home</a> |
-        <a href="greet">Greet</a> |
-    </nav>
-</body>
-</html>
+<body bgcolour="cyan">
+	<header>
+		<h3><%= LocalDate.now() %></h3>
+		<h3>${appTitle}</h3>
+		<hr />
+	</header>
+	<nav>
+		<a href="home">Home</a> |
+		<a href="greet">Greet</a> |
+		<a href="emp">Employee</a> |
+		<a href="tasks">Task List</a> |
+		<a href="visitors">Visitors</a> |
+	</nav>
