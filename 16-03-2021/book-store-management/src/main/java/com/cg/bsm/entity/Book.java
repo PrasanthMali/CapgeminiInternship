@@ -1,7 +1,6 @@
 package com.cg.bsm.entity;
 
 import java.io.Serializable;
-
 import java.time.LocalDate;
 
 import javax.persistence.Entity;
@@ -19,33 +18,29 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
-
 @Entity
-@Table(name="sbwdbooks")
-public class Book implements Serializable{
+@Table(name="sbwbbooks")
+public class Book implements Serializable {
+
 	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long bookId;
 	
-	@NotEmpty(message="book title cannot be empty")
-	@NotNull(message="book title cannot be omitted")
-	private String bookTitle;
+	@NotEmpty(message="title cannot be empty")
+	@NotNull(message="title cannot be omitted")
+	private String title;
 	
-//	@NotEmpty(message="last name cannot be empty")
-//	@NotNull(message="last name cannot be omitted")
-//	private String lastName;
-	
-	@Min(value=100, message="price cannot be less than 100")
+	@Min(value=15, message="price cannot be less than 1")
 	@Max(value=5000, message="price cannot be more than 5000")
 	private Double price;
 	
 	@DateTimeFormat(iso=ISO.DATE)
-	private LocalDate publishDate;
+	private LocalDate datePublished;
 	
 	@Enumerated(EnumType.STRING)
-	private Publisher pub;
+	private Publisher publisher;
 
 	public Long getBookId() {
 		return bookId;
@@ -55,12 +50,12 @@ public class Book implements Serializable{
 		this.bookId = bookId;
 	}
 
-	public String getBookTitle() {
-		return bookTitle;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setBookTitle(String bookTitle) {
-		this.bookTitle = bookTitle;
+	public void setTitle(String title) {
+		this.title = title;
 	}
 
 	public Double getPrice() {
@@ -71,20 +66,20 @@ public class Book implements Serializable{
 		this.price = price;
 	}
 
-	public LocalDate getPublishDate() {
-		return publishDate;
+	public LocalDate getDatePublished() {
+		return datePublished;
 	}
 
-	public void setPublishDate(LocalDate publishDate) {
-		this.publishDate = publishDate;
+	public void setDatePublished(LocalDate datePublished) {
+		this.datePublished = datePublished;
 	}
 
-	public Publisher getPub() {
-		return pub;
+	public Publisher getPublisher() {
+		return publisher;
 	}
 
-	public void setPub(Publisher pub) {
-		this.pub = pub;
+	public void setPublisher(Publisher publisher) {
+		this.publisher = publisher;
 	}
 	
 }

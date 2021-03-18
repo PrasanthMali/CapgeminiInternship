@@ -1,5 +1,4 @@
 package com.cg.bsm.controller;
-
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,36 +22,53 @@ public class BookController {
 	public final static int DELETED = 2;
 	
 	@Autowired
-	private IBookService bookService;
+	private IBookService bookStore;
 	
 	/* to bind departments enumeration values to drop down control in ui*/
 	@ModelAttribute
 	public void populateCommonData(Model model) {
-		model.addAttribute("publishers", Publisher.values());
+		model.addAttribute("publisher", Publisher.values());
 	}
+	
 	
 	@GetMapping(path = "/books")
 	public ModelAndView bookListAction() {
-		return new ModelAndView("book-list", "books", bookService.findAll());
+		return new ModelAndView("book-list", "books", bookStore.findAll());
 	}
 	
 	@GetMapping(path="/newBook")
-	public ModelAndView newEmpAction() {
+	public ModelAndView newBookAction() {
 		return new ModelAndView("book-form", "book", new Book());
 	}
 	
-	
 	@PostMapping(path="/newBook")
-	public ModelAndView saveEmpAction(@Valid @ModelAttribute("book") Book book, BindingResult results) {
+	public ModelAndView saveBookAction(@Valid @ModelAttribute("book") Book book, BindingResult results) {
 		ModelAndView mv;
 		if (results.hasErrors()) {
 			mv = new ModelAndView("book-form", "book", book);
 		} else {
-			book = bookService.save(book);
+			book = bookStore.save(book);
 			long bookId = book.getBookId();
 			mv = new ModelAndView("redirect:/home?id="+bookId+"&msgCode="+SAVED);
 		}
 		return mv;
 	}
-
+	
+	@GetMapping(path="/deleteBook")
+    public ModelAndView deleteBookAction() {
+		return new ModelAndView("book-del", "book", new Book());
+    }
+	
+	@PostMapping(path="/deleteBook")
+	public ModelAndView deleteBookAction(@Valid @ModelAttribute("bookId") Book book, BindingResult results) {
+		ModelAndView mv;
+		if (results.hasErrors()) {
+			mv = new ModelAndView("book-del", "book", book);
+		} else {
+			long bookId=book.getBookId();
+			bookStore.deleteById(bookId);
+			mv = new ModelAndView("redirect:/home?id="+bookId+"&msgCode="+DELETED);
+		}
+		return mv;
+	}
 }

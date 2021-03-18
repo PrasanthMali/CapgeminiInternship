@@ -10,18 +10,20 @@ import com.cg.bsm.entity.Book;
 
 @Service
 public class BookServiceImpl implements IBookService {
+	
 	@Autowired
 	private BookRepository bookRepo;
 	
 	@Override
 	public Book save(Book book) {
 		return bookRepo.save(book);
+		
 	}
 
 	@Override
 	public void deleteById(Long bookId) {
 		bookRepo.deleteById(bookId);
-
+		
 	}
 
 	@Override

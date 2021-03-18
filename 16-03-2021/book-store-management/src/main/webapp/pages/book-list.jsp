@@ -1,7 +1,8 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c" %>
 <jsp:include page="/header" />
 <section>
-	<h3>Book List</h3>
+<center>
+	<h3>Books List</h3>
 	<c:choose>
 		<c:when test="${books eq null}">
 			<p>Books Not Found</p>
@@ -13,24 +14,28 @@
 			<table>
 				<thead>
 					<tr>
-						<th>Book#</th>
-						<th>Book Title</th>
+						<th>Book Id</th>
+						<th>Title</th>
 						<th>Price</th>
-						<th>Actions</th>
+						<th>Publisher</th>
 					</tr>
 				</thead>
 				<tbody>
 					<c:forEach var="b" items="${books }">
 						<tr>
 							<td>${b.bookId }</td>
-							<td>${b.bookTitle} </td>
+							<td>${b.title }</td>
 							<td>${b.price }</td>
-							<td><a href="details">View Details</a></td>
+							<td>${b.publisher }</td>
 						</tr>
 					</c:forEach>
 				</tbody>
 			</table>
 		</c:otherwise>
 	</c:choose>
+<br><br>
+</center>
 </section>
 <jsp:include page="/footer" />
+
+

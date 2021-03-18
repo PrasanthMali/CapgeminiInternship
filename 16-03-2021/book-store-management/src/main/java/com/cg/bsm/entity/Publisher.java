@@ -1,7 +1,6 @@
 package com.cg.bsm.entity;
 
 public enum Publisher {
-	PENGUIN,HACHETTE,HARPER,SIMON,MACMILLAN
-	
+	PUBLISHER1,PUBLISHER2,PUBLISHER3,PUBLISHER4;
 
 }

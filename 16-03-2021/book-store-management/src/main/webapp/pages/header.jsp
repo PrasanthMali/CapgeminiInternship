@@ -6,11 +6,13 @@
 <title>${appTitle }</title>
 </head>
 <body>
-	<nav>
-		<c:forEach var="link" items="${links}">
-			<a href="${link.key }">${link.value }</a> |
-		</c:forEach>
-	</nav>
+	<center>
+		<nav>
+			<c:forEach var="link" items="${links}">
+				<a href="${link.key }">${link.value }</a> |
+			</c:forEach>
+		</nav>
+	</center>
 	<hr />
 </body>
 </html>

@@ -19,12 +19,12 @@ public class DefaultController {
 		Map<String, String> navLinks = new LinkedHashMap<>();
 		
 		navLinks.put("home", "Home");
-		navLinks.put("books", "Books");
-		navLinks.put("newBook", "New Book");
-		navLinks.put("searchBook", "Search Book");
+		navLinks.put("books", "List Books");
+		navLinks.put("newBook", "Add Books");
+		navLinks.put("deleteBook", "Delete Book");
 		
 		model.addAttribute("links", navLinks);
-		model.addAttribute("appTitle", "BookStore Management System");
+		model.addAttribute("appTitle", "Book Store Management System");
 	}
 	
 	@GetMapping(path={"","/","/home"})
@@ -42,6 +42,7 @@ public class DefaultController {
 		return mv;
 	}
 	
+	
 	@GetMapping(path="/header")
 	public ModelAndView headerAction() {
 		return new ModelAndView("header");
@@ -51,5 +52,4 @@ public class DefaultController {
 	public ModelAndView footerAction() {
 		return new ModelAndView("footer");
 	}
-
 }
