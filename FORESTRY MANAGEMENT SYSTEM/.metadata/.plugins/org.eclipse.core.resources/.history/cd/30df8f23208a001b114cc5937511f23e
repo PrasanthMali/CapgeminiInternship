@@ -1,0 +1,9 @@
+package com.cg.fms.dto;
+
+public class Contract {
+
+	public Contract() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

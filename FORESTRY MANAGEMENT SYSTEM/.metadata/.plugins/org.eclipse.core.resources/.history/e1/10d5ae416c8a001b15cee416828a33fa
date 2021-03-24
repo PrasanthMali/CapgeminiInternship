@@ -1,0 +1,26 @@
+package com.cg.fms.dao;
+
+import java.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
+import com.cg.fms.dto.Admin;
+
+@Repository
+public interface AdminDao extends JpaRepository<Admin, String>{
+	
+	public Admin getAdmin(String adminName);
+
+	public Admin addAdmin(Admin admin);
+	
+	public boolean updateAdmin(Admin admin);
+
+	public boolean deleteAdmin(String adminName);
+	
+	public List<Admin> getAllAdmins();
+
+	public boolean existsById(int adminId);//temp
+
+
+
+}

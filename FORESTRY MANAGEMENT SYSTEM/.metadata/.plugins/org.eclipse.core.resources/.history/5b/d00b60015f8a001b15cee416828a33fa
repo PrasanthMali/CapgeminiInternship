@@ -1,0 +1,5 @@
+package com.cg.fms.api;
+
+public class AdminAPI {
+
+}

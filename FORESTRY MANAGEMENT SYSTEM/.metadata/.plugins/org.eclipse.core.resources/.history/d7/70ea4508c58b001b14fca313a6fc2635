@@ -1,0 +1,65 @@
+package com.cg.fms.Service;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.cg.fms.dao.AdminDao;
+import com.cg.fms.dto.Admin;
+import com.cg.fms.exception.AdminException;
+import com.cg.fms.service.AdminServiceImpl;
+
+@ExtendWith(MockitoExtension.class)
+public class AdminTest {
+	@Mock
+	private AdminDao repo;
+	@InjectMocks
+	AdminServiceImpl service;
+
+	@BeforeEach
+	void runBeforeAllTestCase() throws AdminException {
+		service = new AdminServiceImpl();
+	}
+	
+	@AfterEach
+	void cleanAfterAllTestCase() {
+		service=null;
+	}
+	@Test
+	@DisplayName("EventDetails should retrive")
+	void eventDetailsShouldDisplay() throws AdminException {
+		Admin actual = service.addAdmin(new Admin(2,"avinash","1234")); 
+		String expected="avinash";
+		assertEquals(expected,actual);
+	}
+	
+	@Test
+	@DisplayName("AdminDetails should throw Exception.")
+	void addDetailsShouldDisplayException() throws AdminException {
+		Admin admin=new Admin(100,"abhi","12345");
+		assertThrows(AdminException.class,()->{service.addAdmin(admin);});
+	}
+	
+	
+	@Test
+	@DisplayName("Event delete should execute")
+	void eventDeleteShouldDisplay() throws AdminException {
+		boolean actual = service.deleteAdmin("E104");
+		assertTrue(actual);
+	}
+	
+	@Test
+	@DisplayName("Event Delete should throw Exception.")
+	void eventDeleteShouldThrowException() throws AdminException {
+		assertThrows(AdminException.class,()->{service.deleteAdmin("E50");});
+	}
+}

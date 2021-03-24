@@ -1,0 +1,64 @@
+package com.cg.fms.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.cg.fms.dao.AdminDao;
+import com.cg.fms.dto.Admin;
+import com.cg.fms.exception.AdminException;
+@Service
+public class AdminServiceImpl implements IAdminService {
+
+	@Autowired
+	private AdminDao adminDao;
+	
+
+	
+	public AdminServiceImpl() {
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public Admin getAdmin(String adminName) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Admin addAdmin(Admin admin) throws AdminException {
+		if (admin != null) {
+			if (adminDao.existsById(admin.getAdminId())) {
+				throw new AdminException("Admin with Id " + admin.getAdminId() + " is exist already");
+			} else {
+				admin = adminDao.save(admin);
+			}
+		}
+		return admin;
+	}
+
+	@Override
+	public Admin updateAdmin(Admin admin) {
+		Admin oldAdmin = adminDao.findById(admin.getAdminId()).orElse(null);
+		if (oldAdmin == null) {
+			throw new AdminException("No Employee with id " + admin.getAdminId() + " is present");
+		} else {
+			admin = adminDao.save(admin);
+		}
+		return admin;
+	}
+
+	@Override
+	public boolean deleteAdmin(String adminName) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public List<Admin> getAllAdmins() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

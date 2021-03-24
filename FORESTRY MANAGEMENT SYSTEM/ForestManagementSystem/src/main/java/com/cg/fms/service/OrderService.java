@@ -1,0 +1,19 @@
+package com.cg.fms.service;
+
+import java.util.List;
+
+import com.cg.fms.entity.Order;
+
+
+public interface OrderService {
+
+	public Order getOrder(String orderNumber);
+
+	public Order addOrder(Order order);
+
+	public Order updateOrder(Order order);
+
+	public Order deleteOrder(String orderNumber);
+	
+	public List<Order> getAllOrders();
+}

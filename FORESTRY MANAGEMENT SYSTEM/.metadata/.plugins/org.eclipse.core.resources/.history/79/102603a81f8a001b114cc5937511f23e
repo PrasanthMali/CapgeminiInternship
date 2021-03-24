@@ -1,0 +1,70 @@
+package com.cg.fms.dto;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="land_details")
+public class Land {
+	
+	@Id
+	private int landId;
+	
+	private String surveyNumber;
+	private String ownerName;
+	private String landArea;
+	
+	public Land() {
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	
+	public Land(int landId, String surveyNumber, String ownerName, String landArea) {
+		super();
+		this.landId = landId;
+		this.surveyNumber = surveyNumber;
+		this.ownerName = ownerName;
+		this.landArea = landArea;
+	}
+
+
+
+	public int getLandId() {
+		return landId;
+	}
+
+	public void setLandId(int landId) {
+		this.landId = landId;
+	}
+
+	public String getSurveyNumber() {
+		return surveyNumber;
+	}
+
+	public void setSurveyNumber(String surveyNumber) {
+		this.surveyNumber = surveyNumber;
+	}
+
+	public String getOwnerName() {
+		return ownerName;
+	}
+
+	public void setOwnerName(String ownerName) {
+		this.ownerName = ownerName;
+	}
+
+	public String getLandArea() {
+		return landArea;
+	}
+
+	public void setLandArea(String landArea) {
+		this.landArea = landArea;
+	}
+	
+	
+
+}

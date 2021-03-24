@@ -1,0 +1,9 @@
+package com.cg.fms.dto;
+
+public class Land {
+
+	public Land() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

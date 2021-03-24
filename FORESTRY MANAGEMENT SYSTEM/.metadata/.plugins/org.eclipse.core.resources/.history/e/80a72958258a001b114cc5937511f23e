@@ -1,0 +1,37 @@
+package com.cg.fms.dto;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.DateTimeFormat.ISO;
+
+@Entity
+@Table(name="contract_details")
+public class Contract {
+	@Id
+	private String contractNumber;
+	
+	private Customer customer;
+	private Product product;
+	@NotEmpty(message="delivery place cannot be empty")
+	@NotNull(message="delivery place cannot be omitted")
+	private String deliveryPlace;
+	
+	@DateTimeFormat(iso=ISO.DATE)
+	private String deliveryDate;
+	
+	@NotEmpty(message="quantity cannot be empty")
+	@NotNull(message="quantity place cannot be omitted")
+	private String quantity;
+	
+	private Scheduler scheduler;
+	
+	public Contract() {
+		// TODO Auto-generated constructor stub
+	}
+
+}

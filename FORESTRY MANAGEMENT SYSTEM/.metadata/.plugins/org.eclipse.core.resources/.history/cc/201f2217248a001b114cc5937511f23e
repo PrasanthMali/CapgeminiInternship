@@ -1,0 +1,16 @@
+package com.cg.fms.dto;
+
+public class Contract {
+	private String contractNumber;
+	private Customer customer;
+	private Product product;
+	private String deliveryPlace;
+	private String deliveryDate;
+	private String quantity;
+	private Scheduler scheduler;
+	
+	public Contract() {
+		// TODO Auto-generated constructor stub
+	}
+
+}
