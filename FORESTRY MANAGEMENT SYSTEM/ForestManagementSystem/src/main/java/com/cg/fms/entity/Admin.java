@@ -21,8 +21,10 @@ public class Admin implements Serializable{
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int adminId;
+	
+	@Column(name = "admin_id")
+
+	private String adminId;
 	
 	@Column(name = "admin_name")
 	@NotEmpty(message = "admin name cannot be empty")
@@ -33,10 +35,14 @@ public class Admin implements Serializable{
 	@NotEmpty(message = "admin password cannot be empty")
 	@NotNull(message = "admin password cannot be omitted")
 	private String adminPassword;
+	
+	public Admin() {
+		
+	}
 
 	
 	
-	public Admin(int adminId,
+	public Admin(String adminId,
 			@NotEmpty(message = "admin name cannot be empty") @NotNull(message = "admin name cannot be omitted") String adminName,
 			@NotEmpty(message = "admin password cannot be empty") @NotNull(message = "admin password cannot be omitted") String adminPassword) {
 		super();
@@ -46,11 +52,11 @@ public class Admin implements Serializable{
 	}
 
 	
-	public int getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
 
-	public void setAdminId(int adminId) {
+	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
 

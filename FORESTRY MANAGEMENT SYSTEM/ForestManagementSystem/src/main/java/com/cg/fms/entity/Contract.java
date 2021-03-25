@@ -1,5 +1,6 @@
 package com.cg.fms.entity;
 
+import java.io.Serializable;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -8,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,46 +19,57 @@ import javax.validation.constraints.NotNull;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 
+
 @Entity
-@Table(name = "contract_details")
-public class Contract {
+@Table(name = "contracts_details")
+public class Contract implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
+//	@Column(name = "contract_number")
+	
 	private String contractNumber;
 
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Customer> customer;
-	
 	@ManyToOne(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "customer_id")
+	private Customer customer;
+
+	@OneToMany(cascade = CascadeType.ALL)
+//	@JoinColumn(name = "product_id")
 	private Set<Product> product;
 
-	@Column(name = "delivery_place")
+//	@Column(name = "delivery_place")
 	@NotEmpty(message = "delivery place cannot be empty")
 	@NotNull(message = "delivery place cannot be omitted")
 	private String deliveryPlace;
 
-	@Column(name = "delivery_date")
+//	@Column(name = "delivery_date")
 	@DateTimeFormat(iso = ISO.DATE)
 	private String deliveryDate;
 
-	@Column(name = "quantity")
+//	@Column(name = "quantity")
 	@NotEmpty(message = "quantity cannot be empty")
 	@NotNull(message = "quantity  cannot be omitted")
 	private String quantity;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Set<Scheduler> scheduler;
+//	@JoinColumn(name = "scheduler_id")
+	private Scheduler scheduler;
 
 	public Contract() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Contract(String contractNumber, Set<Customer> customer, Set<Product> product,
+	public Contract(String contractNumber, Customer customer, Set<Product> product,
 			@NotEmpty(message = "delivery place cannot be empty") @NotNull(message = "delivery place cannot be omitted") String deliveryPlace,
 			String deliveryDate,
 			@NotEmpty(message = "quantity cannot be empty") @NotNull(message = "quantity  cannot be omitted") String quantity,
-			Set<Scheduler> scheduler) {
+			Scheduler scheduler) {
 		super();
 		this.contractNumber = contractNumber;
 		this.customer = customer;
@@ -75,11 +88,11 @@ public class Contract {
 		this.contractNumber = contractNumber;
 	}
 
-	public Set<Customer> getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Set<Customer> customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
@@ -115,14 +128,13 @@ public class Contract {
 		this.quantity = quantity;
 	}
 
-	public Set<Scheduler> getScheduler() {
+	public Scheduler getScheduler() {
 		return scheduler;
 	}
 
-	public void setScheduler(Set<Scheduler> scheduler) {
+	public void setScheduler(Scheduler scheduler) {
 		this.scheduler = scheduler;
 	}
-
 
 	
 }

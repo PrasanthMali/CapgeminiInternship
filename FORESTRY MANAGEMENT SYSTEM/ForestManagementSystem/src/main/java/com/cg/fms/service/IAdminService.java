@@ -4,17 +4,18 @@ import java.util.List;
 
 import com.cg.fms.entity.Admin;
 import com.cg.fms.exception.AdminException;
+import com.cg.fms.model.AdminModel;
 public interface IAdminService {
 
-	public Admin getAdmin(String adminName);
+	public AdminModel getAdmin(String adminId) throws AdminException;
 
 	public Admin addAdmin(Admin admin)throws AdminException;
 	
-	public Admin updateAdmin(Admin admin);
+	public Admin updateAdmin(Admin admin) throws AdminException;
 
-	public Admin deleteAdmin(int adminId);
+	public void deleteAdmin(String adminId) throws AdminException;
 
-	public List<Admin> getAllAdmins();
+	public List<AdminModel> getAllAdmins();
 
 	
 

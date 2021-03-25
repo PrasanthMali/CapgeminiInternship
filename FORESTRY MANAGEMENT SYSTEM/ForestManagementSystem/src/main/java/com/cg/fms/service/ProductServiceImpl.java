@@ -5,6 +5,9 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cg.fms.entity.Product;
+import com.cg.fms.model.CustomerModel;
+import com.cg.fms.model.LandModel;
+import com.cg.fms.model.ProductModel;
 @Service
 public class ProductServiceImpl implements ProductService {
 
@@ -40,6 +43,21 @@ public class ProductServiceImpl implements ProductService {
 	public List<Product> getAllProducts() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public List<LandModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ProductModel findById(String productId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean existsByProductNumber(String productId) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

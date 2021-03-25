@@ -17,6 +17,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.cg.fms.dao.AdminDao;
 import com.cg.fms.entity.Admin;
+import com.cg.fms.exception.AdminException;
 import com.cg.fms.model.AdminModel;
 import com.cg.fms.service.AdminServiceImpl;
 
@@ -31,18 +32,18 @@ public class AdminTest {
 	@DisplayName("admin Details should retrive")
 	void testGetAll() {
 		List<Admin> testData=Arrays.asList(new Admin[] {
-				new Admin(2,"avinash","1234"),
-				new Admin(1,"abhi","12345")
+				new Admin("2","avinash","1234"),
+				new Admin("1","abhi","12345")
 		});
 		
 		Mockito.when(repo.findAll()).thenReturn(testData);
 		
 		List<AdminModel> expected=Arrays.asList(new AdminModel[] {
-				new AdminModel(1,"abhi","12345"),
-				new AdminModel(1,"abhi","12345")
+				new AdminModel("2","avinash","1234"),
+				new AdminModel("1","abhi","12345")
 		});
 		
-		List<AdminModel> actual = service.findAll();
+		List<AdminModel> actual = service.getAllAdmins();
 		
 		assertEquals(expected,actual);
 
@@ -50,51 +51,56 @@ public class AdminTest {
 	
 	@Test
 	@DisplayName("get by admin id ")
-	void testGetById () {
-		Admin testdata=new Admin(4,"paresh","12");
+	void testGetById () throws AdminException {
+		Admin testdata=new Admin("3","paresh","12");
 		
-		AdminModel expected=new AdminModel(3,"r sai krishna","123");
+		AdminModel expected=new AdminModel("3","paresh","12");
 		
 		Mockito.when(repo.findById(testdata.getAdminId())).thenReturn(Optional.of(testdata));
 	
-		AdminModel actual=service.findById(testdata.getAdminId());
+		AdminModel actual=service.getAdmin(testdata.getAdminId());
 		
 		assertEquals(expected,actual);
 	}
 	
 	@Test
-	@DisplayName("get by admin id return null")
-	void testGetByIdNull() {		
+	@DisplayName("get by admin id if not return null")
+	void testGetByIdNull() throws AdminException {		
 		
-		Mockito.when(repo.findById(1)).thenReturn(Optional.empty());
+		Admin testdata=new Admin("4","paresh","12");
 		
-		AdminModel actual = service.findById(1);
+		Mockito.when(repo.findById("4")).thenReturn(Optional.empty());
+		
+		AdminModel expected=new AdminModel("4","paresh","12");
+		
+		
+		AdminModel actual = service.getAdmin("4");
 		assertNull(actual);
 	}
 	
 	@Test
 	@DisplayName("exists by admin id ")
-	void testExistsBynumber () {
-		AdminModel id=new AdminModel(6,"prasanth","1234567");
-		Admin testdata=new Admin(5,"sai tarun","123456");
+	void testExistsBynumber () throws AdminException {
+		AdminModel id=new AdminModel("6","prasanth","1234567");
+		Admin testdata=new Admin("6","prasanth","1234567");
 		
 		boolean expected=true;
 		
-		Mockito.when(repo.existsByAdminId(testdata.getAdminId())).thenReturn(true);
+		Mockito.when(repo.existsById(testdata.getAdminId())).thenReturn(true);
 	
-		boolean actual=service.existsByAdminId(testdata.getAdminId());
+		AdminModel actual=service.getAdmin(testdata.getAdminId());
 		
 		assertEquals(expected,actual);
 	}
 	@Test
-	@DisplayName("get admin  Id if not exists")
-	void testGetByIdNotExists () {
-		AdminModel id=new AdminModel(7,"bhargav sai","12345678");
-		Admin testdata=new Admin(10,"wrond admin","12098342");
+	@DisplayName("get admin  Id if not exists return null")
+	void testGetByIdNotExists () throws AdminException {
+		AdminModel id=new AdminModel("7","bhargav sai","12345678");
+		Admin testdata=new Admin("7","bhargav sai","12345678");
 		
 		Mockito.when(repo.findById(testdata.getAdminId())).thenReturn(Optional.empty());
 		
-		AdminModel actual = service.findById(testdata.getAdminId());
+		AdminModel actual = service.getAdmin(testdata.getAdminId());
 		assertNull(actual);
 	}
 	

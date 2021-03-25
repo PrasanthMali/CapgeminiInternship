@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
@@ -17,25 +18,27 @@ import javax.validation.constraints.Pattern;
 @Table(name = "schedulers_details")
 public class Scheduler {
 	@Id
+//	@Column(name = "scheduler_id")
+
 	private String schedulerId;
 
-	@Column(name = "scheduler_name")
 	@NotEmpty(message = "scheduler name cannot be empty")
 	@NotNull(message = "scheduler name cannot be omitted")
 	private String schedulerName;
 
-	@Column(name = "scheduler_contact")
 	@Pattern(regexp = "[1-9][0-9]{9}", message = "mobile number is expected to be 10 digits and should not start with 0")
 	@NotNull(message = "scheduler contact cannot be omitted")
 	private String schedulerContact;
 	
-	@ManyToOne(cascade = CascadeType.ALL)
-	private Set<Contract>contract;
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "scheduler")
+//	@JoinColumn(name="contract_number")
+	private Set<Contract> contract;
 	
-	@OneToMany(cascade = CascadeType.ALL)
+	@OneToMany(cascade = CascadeType.ALL,mappedBy = "scheduler")
+//	@JoinColumn(name="order_id")
 	private Set<Order> order;
 	
-	@Column(name = "truck_number")
+//	@Column(name = "truck_number")
 	@NotEmpty(message = "truck number cannot be empty")
 	@NotNull(message = "truck number cannot be omitted")
 	private String truckNumber;
@@ -48,11 +51,14 @@ public class Scheduler {
 	public Scheduler(String schedulerId,
 			@NotEmpty(message = "scheduler name cannot be empty") @NotNull(message = "scheduler name cannot be omitted") String schedulerName,
 			@Pattern(regexp = "[1-9][0-9]{9}", message = "mobile number is expected to be 10 digits and should not start with 0") @NotNull(message = "scheduler contact cannot be omitted") String schedulerContact,
+			Set<Contract> contract, Set<Order> order,
 			@NotEmpty(message = "truck number cannot be empty") @NotNull(message = "truck number cannot be omitted") String truckNumber) {
 		super();
 		this.schedulerId = schedulerId;
 		this.schedulerName = schedulerName;
 		this.schedulerContact = schedulerContact;
+		this.contract = contract;
+		this.order = order;
 		this.truckNumber = truckNumber;
 	}
 
@@ -80,6 +86,22 @@ public class Scheduler {
 		this.schedulerContact = schedulerContact;
 	}
 
+	public Set<Contract> getContract() {
+		return contract;
+	}
+
+	public void setContract(Set<Contract> contract) {
+		this.contract = contract;
+	}
+
+	public Set<Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(Set<Order> order) {
+		this.order = order;
+	}
+
 	public String getTruckNumber() {
 		return truckNumber;
 	}
@@ -87,5 +109,13 @@ public class Scheduler {
 	public void setTruckNumber(String truckNumber) {
 		this.truckNumber = truckNumber;
 	}
+
+	public String getProductId() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
 
 }

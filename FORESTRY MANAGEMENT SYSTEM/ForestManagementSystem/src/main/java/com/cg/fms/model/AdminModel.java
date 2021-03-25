@@ -1,25 +1,27 @@
 package com.cg.fms.model;
 
+
+
 public class AdminModel{
 	
-	private int adminId;
+	private String adminId;
 	
 	private String adminName;
 	
 	private String adminPassword;
 	
-	public AdminModel(int adminId,String adminName, String adminPassword) {
+	public AdminModel(String string,String adminName, String adminPassword) {
 		super();
-		this.adminId = adminId;
+		this.adminId = string;
 		this.adminName = adminName;
 		this.adminPassword = adminPassword;
 	}
 	
 	
-	public int getAdminId() {
+	public String getAdminId() {
 		return adminId;
 	}
-	public void setAdminId(int adminId) {
+	public void setAdminId(String adminId) {
 		this.adminId = adminId;
 	}
 	public String getAdminName() {
@@ -35,4 +37,6 @@ public class AdminModel{
 		this.adminPassword = adminPassword;
 	}
 	
+	
+
 }

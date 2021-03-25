@@ -23,27 +23,23 @@ public class Customer implements Serializable {
 
 	private static final long serialVersionUID = 1L;
 
-	@Id // primary key
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@Column(name = "customer_id")
 	private String customerId;
-	
-	@OneToMany(cascade = CascadeType.ALL)
-	private Set<Contract>contract;
-	
+
 	@Column(name = "customer_pass")
 	@Pattern(regexp = "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&-+=()])(?=\\S+$).{6, 20}$", message = " is represents at least 8 characters and at most 20 characters.")
 	@NotEmpty(message = "password cannot be empty")
 	@NotNull(message = "password cannot be omitted")
 	private String customerPassword;
 
-	@Column(name = "customer_name", length = 30)
+	@Column(name = "customer_name")
 	@NotEmpty(message = "customer name cannot be empty")
 	@NotNull(message = "customer name cannot be omitted")
 	private String customerName;
 
 	@Column(name = "customer_email")
 	@Email(message = "please provide valid email")
-	@Email(message = "email must be a valid one")
 	@NotNull(message = "email cannot be omitted")
 	private String customerEmail;
 
@@ -57,7 +53,7 @@ public class Customer implements Serializable {
 	@NotNull(message = "customer town cannot be omitted")
 	private String customerTown;
 
-	@Column(name = "customer_postalcode", length = 6)
+	@Column(name = "customer_postalcode")
 	@NotEmpty(message = "customer postal cannot be empty")
 	@NotNull(message = "customer postal cannot be omitted")
 	private String customerPostalCode;
@@ -67,6 +63,12 @@ public class Customer implements Serializable {
 	@NotNull(message = "Mobile number cannot be omitted")
 	private String customerContact;
 
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Order> order;
+
+	@OneToMany(cascade = CascadeType.ALL)
+	private Set<Contract> contract;
+
 	public Customer() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -75,11 +77,12 @@ public class Customer implements Serializable {
 	public Customer(String customerId,
 			@Pattern(regexp = "^(?=.[0-9])(?=.[a-z])(?=.[A-Z])(?=.[@#$%^&-+=()])(?=\\S+$).{6, 20}$", message = " is represents at least 8 characters and at most 20 characters.") @NotEmpty(message = "password cannot be empty") @NotNull(message = "password cannot be omitted") String customerPassword,
 			@NotEmpty(message = "customer name cannot be empty") @NotNull(message = "customer name cannot be omitted") String customerName,
-			@Email(message = "please provide valid email") @Email(message = "email must be a valid one") @NotNull(message = "email cannot be omitted") String customerEmail,
+			@Email(message = "please provide valid email") @NotNull(message = "email cannot be omitted") String customerEmail,
 			@NotEmpty(message = "customer address cannot be empty") @NotNull(message = "customer address cannot be omitted") String customerAddress,
 			@NotEmpty(message = "customer town cannot be empty") @NotNull(message = "customer town cannot be omitted") String customerTown,
 			@NotEmpty(message = "customer postal cannot be empty") @NotNull(message = "customer postal cannot be omitted") String customerPostalCode,
-			@Pattern(regexp = "[1-9][0-9]{9}", message = "mobile number is expected to be 10 digits and should not start with 0") @NotNull(message = "Mobile number cannot be omitted") String customerContact) {
+			@Pattern(regexp = "[1-9][0-9]{9}", message = "mobile number is expected to be 10 digits and should not start with 0") @NotNull(message = "Mobile number cannot be omitted") String customerContact,
+			Set<Order> order, Set<Contract> contract) {
 		super();
 		this.customerId = customerId;
 		this.customerPassword = customerPassword;
@@ -89,6 +92,8 @@ public class Customer implements Serializable {
 		this.customerTown = customerTown;
 		this.customerPostalCode = customerPostalCode;
 		this.customerContact = customerContact;
+		this.order = order;
+		this.contract = contract;
 	}
 
 	public String getCustomerId() {
@@ -153,6 +158,26 @@ public class Customer implements Serializable {
 
 	public void setCustomerContact(String customerContact) {
 		this.customerContact = customerContact;
+	}
+
+	public Set<Order> getOrder() {
+		return order;
+	}
+
+	public void setOrder(Set<Order> order) {
+		this.order = order;
+	}
+
+	public Set<Contract> getContract() {
+		return contract;
+	}
+
+	public void setContract(Set<Contract> contract) {
+		this.contract = contract;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
 }

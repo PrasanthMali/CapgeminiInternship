@@ -12,6 +12,6 @@ public class DefaultController {
 	
 	@GetMapping
 	public ResponseEntity<String> defaultAction() {
-		return new ResponseEntity<>("Welcome to REST ful Service", HttpStatus.OK);
+		return new ResponseEntity<>("Welcome to Forestry Management System", HttpStatus.OK);
 	}
 }

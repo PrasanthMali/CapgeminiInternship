@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cg.fms.entity.Land;
+import com.cg.fms.model.CustomerModel;
+import com.cg.fms.model.LandModel;
 @Service
 public class LandServiceImpl implements LandService {
 
@@ -40,6 +42,21 @@ public class LandServiceImpl implements LandService {
 	public List<Land> getAllLands() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public List<LandModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CustomerModel findById(int landId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean existsByCustomerId(int landId) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

@@ -9,4 +9,6 @@ import com.cg.fms.entity.Customer;
 
 public interface CustomerDao extends JpaRepository<Customer, String>{
 
+
+
 }

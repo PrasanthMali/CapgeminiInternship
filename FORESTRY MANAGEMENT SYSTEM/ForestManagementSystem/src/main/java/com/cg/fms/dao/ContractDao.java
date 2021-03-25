@@ -9,4 +9,5 @@ import com.cg.fms.entity.Contract;
 
 public interface ContractDao extends JpaRepository<Contract, String>{
 
+
 }

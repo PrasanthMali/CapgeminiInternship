@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cg.fms.entity.Order;
+import com.cg.fms.model.CustomerModel;
+import com.cg.fms.model.LandModel;
 @Service
 public class OrderServiceImpl implements OrderService {
 
@@ -41,5 +43,22 @@ public class OrderServiceImpl implements OrderService {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+	public List<LandModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public CustomerModel findById(String orderNumber) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean existsByOrderNumber(String orderNumber) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	
 
 }

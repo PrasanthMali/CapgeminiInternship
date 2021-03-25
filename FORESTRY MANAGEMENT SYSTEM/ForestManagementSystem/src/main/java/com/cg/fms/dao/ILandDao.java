@@ -9,4 +9,6 @@ import com.cg.fms.entity.Land;
 
 public interface ILandDao extends JpaRepository<Land, String>{
 
+	
+
 }

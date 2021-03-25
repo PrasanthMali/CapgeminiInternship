@@ -1,6 +1,7 @@
 package com.cg.fms.service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,62 +10,91 @@ import com.cg.fms.dao.AdminDao;
 import com.cg.fms.entity.Admin;
 import com.cg.fms.exception.AdminException;
 import com.cg.fms.model.AdminModel;
+
 @Service
 public class AdminServiceImpl implements IAdminService {
+
 
 	@Autowired
 	private AdminDao adminDao;
 	
-
+	@Autowired
+	private EMParser parser;
 	
 	public AdminServiceImpl() {
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
+	public AdminServiceImpl(AdminDao adminDao) {
+		super();
+		this.adminDao = adminDao;
+		this.parser = parser;
+	}
+
+
 
 	@Override
-	public Admin getAdmin(String adminName) {
-		// TODO Auto-generated method stub
-		return null;
+	public AdminModel getAdmin(String adminId) throws AdminException {
+		if (!adminDao.existsById(adminId))
+			throw new AdminException("No Admin found for the given name");
+		return parser.parse(adminDao.findById(adminId).get());
 	}
 
 	@Override
 	public Admin addAdmin(Admin admin) throws AdminException {
+		if (admin != null) {
+			if (adminDao.existsById(admin.getAdminId())) {
+				throw new AdminException("Admin with this id already exists");
+			}
+
+			admin = adminDao.save(admin);
+		}
+
 		return admin;
 	}
 
 
 
 	@Override
-	public Admin deleteAdmin(int adminId) {
-		// TODO Auto-generated method stub
-		return null;
+	public void deleteAdmin(String adminId) {
+		adminDao.deleteById(adminId);
 	}
 
 	@Override
-	public List<Admin> getAllAdmins() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<AdminModel> getAllAdmins() {
+		
+
+		return adminDao.findAll().stream().map(parser::parse).collect(Collectors.toList());
 	}
 
 	@Override
-	public Admin updateAdmin(Admin admin) {
-		// TODO Auto-generated method stub
-		return null;
+	public Admin updateAdmin(Admin admin) throws AdminException {
+		if (admin != null) {
+			if (adminDao.existsById(admin.getAdminId())) {
+				throw new AdminException("Admin with this doesnot exisit");
+			}
+
+			admin = adminDao.save(admin);
+		}
+
+		return admin;
 	}
 
-	public List<AdminModel> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public AdminModel findById(int adminId) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public boolean existsByAdminId(int adminId) {
-		// TODO Auto-generated method stub
-		return false;
-	}
+//	public List<AdminModel> findAll() {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	public AdminModel findById(int adminId) {
+//		// TODO Auto-generated method stub
+//		return null;
+//	}
+//
+//	public boolean existsByAdminId(int adminId) {
+//		// TODO Auto-generated method stub
+//		return false;
+//	}
 
 }

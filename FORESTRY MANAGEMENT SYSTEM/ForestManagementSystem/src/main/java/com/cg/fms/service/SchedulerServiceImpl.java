@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import com.cg.fms.entity.Scheduler;
+import com.cg.fms.model.LandModel;
+import com.cg.fms.model.ProductModel;
 @Service
 public class SchedulerServiceImpl implements SchedulerService {
 
@@ -40,6 +42,21 @@ public class SchedulerServiceImpl implements SchedulerService {
 	public List<Scheduler> getAllSchedulers() {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+	public List<LandModel> findAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public ProductModel findById(String schedulerId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean existsBySchedulerId(String schedulerId) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 }

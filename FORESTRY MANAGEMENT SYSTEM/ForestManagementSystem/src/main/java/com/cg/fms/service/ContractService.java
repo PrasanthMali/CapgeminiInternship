@@ -3,12 +3,13 @@ package com.cg.fms.service;
 import java.util.List;
 
 import com.cg.fms.entity.Contract;
+import com.cg.fms.exception.ContractException;
 
 public interface ContractService {
 	
-	public Contract getContract(String contractNumber);
-	public Contract addContract(Contract contract);
-	public Contract updateContract(Contract contract);
-	public Contract deleteContract(String contractNumber);
+	public Contract getContract(String contractNumber) throws ContractException;
+	public Contract addContract(Contract contract) throws ContractException;
+	public Contract updateContract(Contract contract)throws ContractException;
+	public void deleteContract(String contractNumber)throws ContractException;
 	public List<Contract> getAllContracts();
 }

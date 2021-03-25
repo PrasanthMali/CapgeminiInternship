@@ -6,6 +6,7 @@ import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -18,45 +19,40 @@ import org.springframework.format.annotation.DateTimeFormat.ISO;
 @Table(name = "orders_details")
 public class Order {
 	@Id
+//	@Column(name = "order_number")
+
 	private String orderNumber;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Set<Contract> contract;
+	private Contract contract;
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Set<Customer> customer;
+	private Customer customer;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Set<Product> product;
+	private Product product;
 
-	@Column(name = "delivery_place")
+
 	@NotEmpty(message = "delivery place cannot be empty")
 	@NotNull(message = "delivery place cannot be omitted")
 	private String deliveryPlace;
 
-	@Column(name = "delivery_date")
+
 	@DateTimeFormat(iso = ISO.DATE)
 	private String deliveryDate;
 
-	@Column(name = "order_quantity")
 	@NotEmpty(message = "quantity cannot be empty")
 	@NotNull(message = "quantity cannot be omitted")
 	private String quantity;
 
 	@ManyToOne(cascade = CascadeType.ALL)
-	private Set<Scheduler> scheduler;
+//	@JoinColumn(name="scheduler_id")
+	private Scheduler scheduler;
 
-	public Order() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	
-
-	public Order(String orderNumber, Set<Contract> contract, Set<Customer> customer, Set<Product> product,
+	public Order(String orderNumber, Contract contract, Customer customer, Product product,
 			@NotEmpty(message = "delivery place cannot be empty") @NotNull(message = "delivery place cannot be omitted") String deliveryPlace,
 			String deliveryDate,
 			@NotEmpty(message = "quantity cannot be empty") @NotNull(message = "quantity cannot be omitted") String quantity,
-			Set<Scheduler> scheduler) {
+			Scheduler scheduler) {
 		super();
 		this.orderNumber = orderNumber;
 		this.contract = contract;
@@ -68,8 +64,6 @@ public class Order {
 		this.scheduler = scheduler;
 	}
 
-
-
 	public String getOrderNumber() {
 		return orderNumber;
 	}
@@ -78,27 +72,27 @@ public class Order {
 		this.orderNumber = orderNumber;
 	}
 
-	public Set<Contract> getContract() {
+	public Contract getContract() {
 		return contract;
 	}
 
-	public void setContract(Set<Contract> contract) {
+	public void setContract(Contract contract) {
 		this.contract = contract;
 	}
 
-	public Set<Customer> getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
-	public void setCustomer(Set<Customer> customer) {
+	public void setCustomer(Customer customer) {
 		this.customer = customer;
 	}
 
-	public Set<Product> getProduct() {
+	public Product getProduct() {
 		return product;
 	}
 
-	public void setProduct(Set<Product> product) {
+	public void setProduct(Product product) {
 		this.product = product;
 	}
 
@@ -126,13 +120,17 @@ public class Order {
 		this.quantity = quantity;
 	}
 
-	public Set<Scheduler> getScheduler() {
+	public Scheduler getScheduler() {
 		return scheduler;
 	}
 
-	public void setScheduler(Set<Scheduler> scheduler) {
+	public void setScheduler(Scheduler scheduler) {
 		this.scheduler = scheduler;
 	}
+
+	
+
+	
 
 	
 }
