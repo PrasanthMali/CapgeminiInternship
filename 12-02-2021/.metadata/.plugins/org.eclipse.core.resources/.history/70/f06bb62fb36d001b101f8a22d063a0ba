@@ -1,9 +1,0 @@
-package com.cg.shape.model;
-
-public class Circle {
-
-	public Circle() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

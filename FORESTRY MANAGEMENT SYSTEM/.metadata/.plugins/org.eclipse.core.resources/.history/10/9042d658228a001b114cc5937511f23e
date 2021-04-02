@@ -1,8 +1,0 @@
-package com.cg.fms.dto;
-
-public class Scheduler  {
-	private String schedulerId;
-	private String schedulerName;
-	private String schedulerContact;
-	private String truckNumber;
-}

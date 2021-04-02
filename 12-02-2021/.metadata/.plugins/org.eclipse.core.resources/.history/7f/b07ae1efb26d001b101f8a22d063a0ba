@@ -1,9 +1,0 @@
-package com.cg.shape.model;
-
-public class Rectangle {
-
-	public Rectangle() {
-		// TODO Auto-generated constructor stub
-	}
-
-}

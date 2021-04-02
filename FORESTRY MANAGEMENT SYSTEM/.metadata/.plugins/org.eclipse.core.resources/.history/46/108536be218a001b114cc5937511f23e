@@ -1,9 +1,0 @@
-package com.cg.fms.dto;
-
-
-public class Product{
-	private String productId;
-	private String productName;
-	private String productQuantity;
-	private String productDescription;
-}

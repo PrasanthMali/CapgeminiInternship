@@ -1,0 +1,38 @@
+core java questions
+    exception handling
+        what is checked and unchecked exception?
+        what is throw and throws?
+        how to create user defined exceptions?
+        what is the use of finally block?
+        what is try-with-resources?
+        exception classes hierarchy?
+
+ 
+
+    collections
+        collection classes and interfaces hierarchy
+        what is the difference between list and set?
+        diff b/w arraylist and linkedlist?
+        diff b/w arraylist and vector?
+        diff b/w hashset, linkedhashset, treeset?
+        diff b/w comparable and comparator interfaces?
+        what is concurrent hashmap?
+        how do you sort an arraylist that contain employee objects.
+        what is the contract between hashcode and equals() ?
+        diff b/w hashmap, linkedhashmap and treemap?
+
+ 
+
+    streams
+        stream class methods - map(), reduce(), sorted() etc.,
+        what is the purpose of stream?
+        what is a functional interface?
+        what is a lambda ?
+        what are intermediate and terminal operations of streams?
+        
+
+ 
+
+    spring boot features
+    annotations?
+    multi-layered architecture
