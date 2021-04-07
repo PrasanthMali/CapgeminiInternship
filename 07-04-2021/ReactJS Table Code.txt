@@ -1,0 +1,46 @@
+return(
+        <div>
+            <table border="1">
+                <caption>Courses</caption>
+                <thead>
+                    <th>Sl.No</th>
+                    <th>Course Name</th>
+                </thead>
+                <tbody>
+                    {
+                        courseList.map((course,index)=>
+                        <tr>
+                            <td>{index+1}</td>
+                            <td>{course}</td>
+                        </tr>)
+                    }
+                </tbody>
+            </table>
+        </div>
+    );
+------------------------------------------------------------------------------
+ return(
+        <div>
+            <table border="1">
+                <caption>Employee Details</caption>
+                <thead>
+                    <th>Sl.No</th>
+                    <th>empNo</th>
+                    <th>empName</th>
+                    <th>Email</th>
+                </thead>
+                <tbody>
+                    {
+                        empList.map((emp,index)=>
+                        <tr>
+                            <td>{index+1}</td>
+                            <td>{emp.empNo}</td>
+                            <td>{emp.empName}</td>
+                            <td>{emp.email}</td>
+                        </tr>)
+
+                    }
+                </tbody>
+            </table>
+        </div>
+    );
